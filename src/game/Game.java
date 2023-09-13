@@ -1,16 +1,23 @@
+package game;
+
 import java.util.Scanner;
-public class Game{
-    int plateaux = 64;
-    int position = 1;
-    int de ;
+
+public class Game {
+
+    int[] plateaux= new int[64];
+    int de;
+
     Scanner clavier = new Scanner(System.in);
 
-    public void  game(){
-        while (position < plateaux){
-            if (position == 1){
+    public void game() throws PlateauxException {
+        int position = plateaux[1];
+        while (position <= plateaux.length) {
+            if (position == 1) {
                 System.out.println("La partie démarre");
+            if (position > plateaux.length){
+                throw new PlateauxException(de, position);
             }
-            else {
+            } else {
                 System.out.println("votre position est " + position);
             }
             System.out.println("quel est votre choix");
@@ -19,30 +26,32 @@ public class Game{
             System.out.println("3 pour quitter");
             clavier.nextLine();
             int choice = clavier.nextInt();
-            if(choice == 1){
-                de = 1 + (int)(Math.random() * ((6 - 1) + 1));
+            if (choice == 1) {
+                de = 1 + (int) (Math.random() * ((6 - 1) + 1));
                 position += de;
             }
-            if (choice == 2){
-                Menu Pause  = new Menu();
-                Pause.newGame();
+            if (choice == 2) {
+                Menu Pause = new Menu();
+                Pause.newGame(position);
             }
-            if (choice == 3){
+            if (choice == 3) {
                 System.out.println("merci à bientôt");
             }
         }
+        System.out.println("votre position est " + position);
         System.out.println("Bravo vous avez gagné");
-        System.out.println("taper un pour recommencer");
+        System.out.println("taper 1 pour recommencer");
         System.out.println("2 pour quitter");
         clavier.nextLine();
         int choice = clavier.nextInt();
-        if(choice == 1){
+        if (choice == 1) {
             Menu Start = new Menu();
-            Start.mainMenu();
+            position = 1;
+            Start.mainMenu(position);
         }
-        if (choice == 2){
+        if (choice == 2) {
             System.out.println("à bientôt ");
+            System.exit(0);
         }
     }
 }
-
