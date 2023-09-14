@@ -1,11 +1,10 @@
 import game.Menu;
-import game.PlateauxException;
+
 
 public class Main {
-    public static void main(String[] args) throws PlateauxException {
+    public static void main(String[] args){
 
-        int position = 1;
         Menu start = new Menu();
-        start.mainMenu(position);
+        start.showMainMenu();
     }
 }

@@ -9,26 +9,16 @@ public abstract class Personnage {
     private String leftArm;
     private String rightArm;
 
-    public Personnage(int position) {
-        this.name = "hero.Warrior";
-        this.life = 10;
-        this.force = 15;
-        this.type = "Warrior";
-        this.leftArm = "";
-        this.rightArm="";
+    public Personnage() {
+        this("Noname");
     }
 
-    public Personnage(String name, int position) {
+    public Personnage(String name) {
 
-        this.name = name;
-        this.life = 10;
-        this.force = 15;
-        this.type = "hero.Warrior";
-        this.leftArm = "";
-        this.rightArm="";
+        this(name, "Warrior");
     }
 
-    public Personnage(String name, String type, int position) {
+    public Personnage(String name, String type) {
         this.name = name;
         this.life = 10;
         this.force = 10;
