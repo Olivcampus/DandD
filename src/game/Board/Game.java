@@ -1,26 +1,35 @@
-package game;
+package game.Board;
 
 import java.util.Scanner;
 
+import game.Menu;
+import game.exception.playerOutOfBoardException;
+
 public class Game {
 
-    int[] plateaux = new int[64];
-    int de;
-    int position =1;
-    Scanner clavier = new Scanner(System.in);
-
     /**
+     * S'occupe du bon déroulement du jeu
      *
-     *  je suis une javadoc !!!!
-     * @throws playerOutOfBoardException
+     * @throws Throwable en cas d'erreur
+     * @Board pour le plateau
+     * @menu pour modifier le personnage
      */
-    public void game() throws playerOutOfBoardException {
+    public void playTurn() throws playerOutOfBoardException {
 
-        while (position <= plateaux.length) {
-            if (position == 1) {
+        Board plateaux = new Board();
+        System.out.println(plateaux);
+        int size = 0;
+        Board boardSize = boardSize(size);
+        System.out.println(boardSize);
+        int de;
+        int playerPosition = 1;
+        Scanner clavier = new Scanner(System.in);
+
+        while (true) {
+            if (playerPosition == 1) {
                 System.out.println("La partie démarre");
             }
-            System.out.println("votre position est " + position);
+            System.out.println("votre playerPosition est " + playerPosition);
             System.out.println("quel est votre choix");
             System.out.println("taper 1 pour jeter le dé");
             System.out.println("2 pour modifier votre personnage");
@@ -28,12 +37,12 @@ public class Game {
             int choice = clavier.nextInt();
             if (choice == 1) {
                 de = 1 + (int) (Math.random() * ((6 - 1) + 1));
-                position = position + de;
-                if (position > plateaux.length) {
-                    throw new playerOutOfBoardException(de, position);
+                playerPosition = playerPosition + de;
+                if (playerPosition > boardSize) {
+                    throw new playerOutOfBoardException();
                 }
-                if (position == plateaux.length) {
-                    System.out.println("votre position est " + position);
+                if (playerPosition == boardSize) {
+                    System.out.println("votre playerPosition est " + playerPosition);
                     System.out.println("Bravo vous avez gagné");
                     System.out.println("taper 1 pour recommencer");
                     System.out.println("2 pour quitter");
@@ -61,3 +70,4 @@ public class Game {
 
     }
 }
+

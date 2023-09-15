@@ -1,4 +1,7 @@
-package model;
+package Personnage;
+
+import Attack.EquipmentOffensive;
+import defense.EquipmentDefensive;
 
 public abstract class Personnage {
 
@@ -6,8 +9,8 @@ public abstract class Personnage {
     private int life;
     private int force;
     private String type;
-    private String leftArm;
-    private String rightArm;
+    protected EquipmentOffensive leftArm;
+    protected EquipmentDefensive rightArm;
 
     public Personnage() {
         this("Noname");
@@ -22,8 +25,6 @@ public abstract class Personnage {
         this.name = name;
         this.life = 10;
         this.force = 10;
-        this.leftArm = "";
-        this.rightArm="";
         this.type = type;
     }
 
@@ -35,13 +36,38 @@ public abstract class Personnage {
         this.life = life;
     }
 
-    public void setLeftArm(String leftArm) {
+    public String getName() {
+        return name;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public int getForce() {
+        return force;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public EquipmentOffensive getLeftArm() {
+        return leftArm;
+    }
+
+    public EquipmentDefensive getRightArm() {
+        return rightArm;
+    }
+
+    public void setLeftArm(EquipmentOffensive leftArm) {
         this.leftArm = leftArm;
     }
 
-    public void setRightArm(String rightArm) {
+    public void setRightArm(EquipmentDefensive rightArm) {
         this.rightArm = rightArm;
     }
+
 
     @Override
     public String toString() {

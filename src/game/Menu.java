@@ -1,12 +1,19 @@
 package game;
 
-import hero.Warrior;
-import hero.Wizard;
+import Personnage.heros.Warrior;
+import Personnage.heros.Wizard;
+import game.Board.Game;
+import game.exception.playerOutOfBoardException;
+
 import java.util.Scanner;
 
 public class Menu {
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Menu Principal du jeu
+     *
+     */
     public void showMainMenu() {
         System.out.println("Bienvenue dans le donjon de Naheulbeuk!");
         System.out.println("Menu principal");
@@ -26,6 +33,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Permet la création ou la modification des personages
+     */
     public void StartNewGame() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisissez un nom :");
@@ -39,7 +49,6 @@ public class Menu {
         }
         if ((!name.isEmpty()) && (type.isEmpty())) {
             Warrior player = new Warrior(name);
-            System.out.println(player);
         }
         if (!type.isEmpty()) {
             if (type.equals("Warrior")) {
@@ -51,6 +60,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Confirmation des choix
+     */
     public void confirmChoice() {
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
@@ -59,10 +71,9 @@ public class Menu {
         if (choice == 1) {
             Game start = new Game();
             try {
-                start.game();
+                start.playTurn();
             } catch (playerOutOfBoardException e) {
-
-                showMainMenu();
+               showMainMenu();
             }
         }
         if (choice == 2) {
