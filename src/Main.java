@@ -1,4 +1,4 @@
-import game.Menu;
+import Game.Menu;
 
 
 public class Main {

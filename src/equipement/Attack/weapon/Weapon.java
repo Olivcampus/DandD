@@ -1,6 +1,6 @@
-package Attack.weapon;
+package equipement.Attack.weapon;
 
-import Attack.EquipmentOffensive;
+import equipement.Attack.EquipmentOffensive;
 
 public class Weapon extends EquipmentOffensive {
     public Weapon(String WeaponName, int powerWeapon){

@@ -1,14 +1,14 @@
 package Personnage;
 
-import Attack.EquipmentOffensive;
-import defense.EquipmentDefensive;
+import equipement.Attack.EquipmentOffensive;
+import equipement.defense.EquipmentDefensive;
 
 public abstract class Personnage {
 
     private String name;
     private int life;
     private int force;
-    private String type;
+    public String type;
     protected EquipmentOffensive leftArm;
     protected EquipmentDefensive rightArm;
 
@@ -27,6 +27,7 @@ public abstract class Personnage {
         this.force = 10;
         this.type = type;
     }
+
 
     public void setForce(int force) {
         this.force = force;

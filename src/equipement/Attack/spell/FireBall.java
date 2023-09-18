@@ -1,4 +1,4 @@
-package Attack.spell;
+package equipement.Attack.spell;
 
 
 

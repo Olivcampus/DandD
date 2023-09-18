@@ -1,4 +1,4 @@
-package defense.shield;
+package equipement.defense.shield;
 
 public class WoodShield extends Shield {
     public WoodShield(){

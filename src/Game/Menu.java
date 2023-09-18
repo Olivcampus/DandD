@@ -1,20 +1,25 @@
-package game;
+package Game;
 
 import Personnage.heros.Warrior;
 import Personnage.heros.Wizard;
-import game.Board.Game;
-import game.exception.playerOutOfBoardException;
+import Game.Board.Board;
+import Game.Board.Game;
+import Game.exception.playerOutOfBoardException;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class Menu {
     Scanner sc = new Scanner(System.in);
+    ArrayList player = new ArrayList<>();
 
     /**
      * Menu Principal du jeu
      *
      */
     public void showMainMenu() {
+
         System.out.println("Bienvenue dans le donjon de Naheulbeuk!");
         System.out.println("Menu principal");
         System.out.println("1 : nouvelle partie rapide");
@@ -23,47 +28,53 @@ public class Menu {
         System.out.println("veuillez saisir votre choix");
         int choice = sc.nextInt();
         if (choice == 1) {
-            new Warrior();
+            player = new ArrayList((Collection) new Warrior());
         }
         if (choice == 2) {
-            StartNewGame();
+            StartNewGame(player);
         }
         if (choice == 3) {
             System.out.println("merci au revoir !");
         }
+        Menu Continue = new Menu();
+        Continue.confirmChoice(player);
     }
 
     /**
      * Permet la création ou la modification des personages
      */
-    public void StartNewGame() {
+    public void StartNewGame(ArrayList player) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisissez un nom :");
         String name = sc.nextLine();
         System.out.println("Choisissez une classe :");
         String type = sc.nextLine();
         System.out.println(type);
-
         if ((name.isEmpty()) && (type.isEmpty())) {
-            Warrior player = new Warrior();
+
+            player = new ArrayList((Collection) new Warrior());
         }
         if ((!name.isEmpty()) && (type.isEmpty())) {
-            Warrior player = new Warrior(name);
+
+            player = new ArrayList((Collection) new Warrior(name));
         }
         if (!type.isEmpty()) {
             if (type.equals("Warrior")) {
-                Warrior player = new Warrior(name, type);
+
+                player = new ArrayList((Collection) new Warrior(name, type));
             }
             if (type.equals("Wizard")) {
-                Wizard player= new Wizard(name, type);
+                player = new ArrayList((Collection) new Wizard(name, type));
             }
         }
+        Menu Continue = new Menu();
+        Continue.confirmChoice(player);
     }
 
     /**
      * Confirmation des choix
      */
-    public void confirmChoice() {
+    public void confirmChoice(ArrayList player) {
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
         System.out.println("appuyer sur 2 pour recommencer ");
@@ -71,13 +82,17 @@ public class Menu {
         if (choice == 1) {
             Game start = new Game();
             try {
-                start.playTurn();
+                Board plateaux = new Board();
+                int boardSize = Board.boardSize();
+                System.out.println(boardSize);
+                int playerPosition = 1;
+                start.playTurn(playerPosition, boardSize, player, plateaux);
             } catch (playerOutOfBoardException e) {
                showMainMenu();
             }
         }
         if (choice == 2) {
-            StartNewGame();
+            StartNewGame(player);
         }
     }
 }

@@ -1,30 +1,24 @@
-package game.Board;
+package Game.Board;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import Game.Menu;
+import Game.exception.playerOutOfBoardException;
 
-import game.Menu;
-import game.exception.playerOutOfBoardException;
 
-public class Game {
+public class Game implements Cases{
 
     /**
      * S'occupe du bon déroulement du jeu
      *
-     * @throws Throwable en cas d'erreur
      * @Board pour le plateau
      * @menu pour modifier le personnage
      */
-    public void playTurn() throws playerOutOfBoardException {
+    public void playTurn(int playerPosition, int boardSize, ArrayList player, Board plateaux)  throws playerOutOfBoardException {
 
-        Board plateaux = new Board();
-        System.out.println(plateaux);
-        int size = 0;
-        Board boardSize = boardSize(size);
-        System.out.println(boardSize);
         int de;
-        int playerPosition = 1;
         Scanner clavier = new Scanner(System.in);
-
+        System.out.println(player);
         while (true) {
             if (playerPosition == 1) {
                 System.out.println("La partie démarre");
@@ -39,7 +33,7 @@ public class Game {
                 de = 1 + (int) (Math.random() * ((6 - 1) + 1));
                 playerPosition = playerPosition + de;
                 if (playerPosition > boardSize) {
-                    throw new playerOutOfBoardException();
+                    throw new playerOutOfBoardException(playerPosition, de, boardSize, player, plateaux);
                 }
                 if (playerPosition == boardSize) {
                     System.out.println("votre playerPosition est " + playerPosition);
@@ -49,6 +43,8 @@ public class Game {
                     clavier.nextLine();
                     int choices = clavier.nextInt();
                     if (choices == 1) {
+                        boardSize = 0;
+                        playerPosition = 1;
                         Menu Start = new Menu();
 
                         Start.showMainMenu();
@@ -61,12 +57,17 @@ public class Game {
             }
             if (choice == 2) {
                 Menu Pause = new Menu();
-                Pause.StartNewGame();
+                Pause.StartNewGame(player);
             }
             if (choice == 3) {
                 System.out.println("merci à bientôt");
             }
         }
+
+    }
+
+    @Override
+    public void eventmonster() {
 
     }
 }

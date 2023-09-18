@@ -1,4 +1,4 @@
-package defense;
+package equipement.defense;
 
 public class EquipmentDefensive {
         private String armorType ;

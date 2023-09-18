@@ -1,11 +1,11 @@
-package game.Board;
+package Game.Board;
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Board {
 
-    ArrayList<Integer> boards = new ArrayList<>();
+    static ArrayList<Integer> boards = new ArrayList<>();
     Scanner clavier = new Scanner(System.in);
 
     /**
@@ -20,8 +20,8 @@ public class Board {
         }
     }
 
-    public int boardSize(int boardSize) {
-        boardSize = boards.size();
+    public static int boardSize() {
+        int boardSize = boards.size();
         return boardSize;
     }
 }

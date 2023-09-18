@@ -1,4 +1,4 @@
-package defense.potion;
+package equipement.defense.potion;
 
 public class BasicPotion extends Potion{
     public BasicPotion(){

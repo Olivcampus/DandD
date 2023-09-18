@@ -1,4 +1,4 @@
-package Attack;
+package equipement.Attack;
 
 public class  EquipmentOffensive {
     private String WeaponType ;

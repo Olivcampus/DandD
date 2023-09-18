@@ -1,9 +1,9 @@
 package Personnage.heros;
 
-import Attack.weapon.WoodSword;
+import equipement.Attack.weapon.WoodSword;
 import Personnage.Personnage;
-import defense.shield.WoodShield;
-import game.Menu;
+import equipement.defense.shield.WoodShield;
+import java.util.Arrays;
 
 public class Warrior extends Personnage {
     /**
@@ -11,7 +11,8 @@ public class Warrior extends Personnage {
      * @Personnage pour hériter des valeurs par défaut
      */
     public Warrior() {
-        this("Noname");
+
+         this("Noname");
 
     }
 
@@ -27,8 +28,9 @@ public class Warrior extends Personnage {
         this.setRightArm(new WoodShield());
         this.setForce(getForce() + getLeftArm().getPowerWeapon());
         this.setLife(getLife() + getRightArm().getPowerArmor());
+
+
         System.out.println(this);
-        Menu Continue = new Menu();
-        Continue.confirmChoice();
+
      }
 }

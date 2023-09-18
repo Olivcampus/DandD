@@ -1,4 +1,4 @@
-package Attack.weapon;
+package equipement.Attack.weapon;
 
 
 
