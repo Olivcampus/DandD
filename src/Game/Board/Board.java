@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Board {
 
-    static ArrayList<Integer> boards = new ArrayList<>();
+    ArrayList<Integer> boards = new ArrayList<>();
     Scanner clavier = new Scanner(System.in);
 
     /**
@@ -20,9 +20,8 @@ public class Board {
         }
     }
 
-    public static int boardSize() {
-        int boardSize = boards.size();
-        return boardSize;
+    public  int boardSize() {
+        return boards.size();
     }
 }
 
