@@ -5,23 +5,28 @@ import Game.exception.PlayerOutOfBoardException;
 public class Move {
 
     int de;
-    public int MovePlayer(int playerPosition) throws PlayerOutOfBoardException {
-        if (playerPosition < 64) {
+
+    public int MovePlayer(int playerPosition, int boardSize) throws PlayerOutOfBoardException {
+        if (playerPosition < boardSize) {
             de = 1 + (int) (Math.random() * ((6 - 1) + 1));
             playerPosition += de;
             return playerPosition;
 
-        } else if (playerPosition > 64) {
+        } else if (playerPosition > boardSize) {
             throw new PlayerOutOfBoardException();
         }
 
         return playerPosition;
     }
 
-    public int MoveException(int playerPosition) {
-        playerPosition -= de;
-        System.out.println("retour en position " + playerPosition);
-        return playerPosition;
+    public int MoveException(int playerPosition, int boardSize) {
+        if (playerPosition > boardSize) {
+            playerPosition -= de;
+            System.out.println("retour en position " + playerPosition);
+            return playerPosition;
+        } else {
+            return playerPosition;
+        }
     }
 }
 

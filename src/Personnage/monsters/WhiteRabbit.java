@@ -2,11 +2,11 @@ package Personnage.monsters;
 
 import Personnage.Personnage;
 
-public class WitheRabbit extends Personnage {
+public class WhiteRabbit extends Personnage {
 
-    public WitheRabbit(){
+    public WhiteRabbit(){
 
-        super("Nolan");
+        super("Nolan", "Le lapin blanc");
         this.setForce(100);
         this.setLife(100);
     }

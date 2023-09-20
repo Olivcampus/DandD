@@ -13,6 +13,7 @@ public class Menu {
     ArrayList<Warrior> warriors = new ArrayList<>();
     ArrayList<Wizard> wizards = new ArrayList<>();
 
+
     /**
      * Menu Principal du jeu
      */
@@ -28,8 +29,7 @@ public class Menu {
         if (choice == 1) {
             Warrior warrior = new Warrior();
             warriors.add(warrior);
-            Menu Continue = new Menu();
-            Continue.confirmChoice(warrior);
+            confirmChoice(warrior);
         }
         if (choice == 2) {
             StartNewGame();
@@ -46,26 +46,24 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisissez un nom :");
         String name = sc.nextLine();
-        System.out.println("Choisissez une classe :");
-        String type = sc.nextLine();
+        System.out.println("Choisissez une classe , tapez 1 pour guerrier, 2 pour sorcier");
+        int type = sc.nextInt();
         System.out.println(type);
-        if ((name.isEmpty()) || (type.isEmpty())) {
-            System.out.println("veuillez saisir un nom ou un type");
-            StartNewGame();
-        }
 
-        if (!name.isEmpty() && type.equals("Warrior")) {
-            Warrior warrior = new Warrior(name, type);
+        if (!name.isEmpty() && type == 1) {
+            Warrior warrior = new Warrior(name, "Warrior");
             warriors.add(warrior);
-            Menu Continue = new Menu();
-            Continue.confirmChoice(warrior);
+            confirmChoice(warrior);
         }
 
-        if (!name.isEmpty() && type.equals("Wizard")) {
-            Wizard wizard = new Wizard(name, type);
+        if (!name.isEmpty() && type == 2) {
+            Wizard wizard = new Wizard(name, "Wizard");
             wizards.add(wizard);
-            Menu Continue = new Menu();
-            Continue.confirmChoice(wizard);
+            confirmChoice(wizard);
+        }
+        else {
+            System.out.println("Nom ou/et type non renseigné, veuillez recommencer");
+            StartNewGame();
         }
 
     }
@@ -74,6 +72,7 @@ public class Menu {
      * Confirmation des choix
      */
     public void confirmChoice(Personnage current) {
+        System.out.println(current);
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
         System.out.println("appuyer sur 2 pour recommencer ");
@@ -83,12 +82,9 @@ public class Menu {
             Game start = new Game();
             Board plateaux = new Board();
             int boardSize = plateaux.boardSize();
-            System.out.println(boardSize);
             int playerPosition = 1;
             start.playTurn(playerPosition, boardSize, current, plateaux, de);
-            showMainMenu();
         }
-
         if (choice == 2) {
             StartNewGame();
         }

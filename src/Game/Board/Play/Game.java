@@ -8,7 +8,7 @@ import Game.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
 
 public class Game {
-
+    Menu Pause = new Menu();
     /**
      * S'occupe du bon déroulement du jeu
      *
@@ -19,30 +19,29 @@ public class Game {
         Move move = new Move();
         RamdomEvent event = new RamdomEvent();
         Scanner clavier = new Scanner(System.in);
-        System.out.println(player);
         while (playerPosition <= boardSize) {
             if (playerPosition == 1) System.out.println("La partie démarre");
             System.out.println("votre position est " + playerPosition + "/" + boardSize);
+            System.out.println("votre santé actuelle : " + player.getLife() + " PV, votre force actuelle : " + player.getForce() + " points et votre armure actuelle : " + player.getRightArm().getPowerArmor() + " de résistance");
             System.out.println("quel est votre choix");
             System.out.println("taper 1 pour jeter le dé");
             System.out.println("2 pour modifier votre personnage");
             System.out.println("3 pour quitter");
             int choice = clavier.nextInt();
-
-
             if (choice == 1) {
+
                 if (playerPosition < boardSize) {
                     try {
-                        playerPosition = move.MovePlayer(playerPosition);
-
+                        playerPosition = move.MovePlayer(playerPosition, boardSize);
                         event.ramdomEvent(playerPosition, boardSize, player, plateaux, de);
+
 
                     } catch (PlayerOutOfBoardException e) {
 
                         System.out.println("votre position est de " + playerPosition + " " + e.getMessage());
 
                     } finally {
-                        playerPosition = move.MoveException(playerPosition);
+                        playerPosition = move.MoveException(playerPosition, boardSize);
                     }
                 }
 
@@ -52,17 +51,13 @@ public class Game {
             }
 
             if (choice == 2) {
-                Menu Pause = new Menu();
+
                 Pause.StartNewGame();
             }
             if (choice == 3) {
-                System.out.println("merci à bientôt");
-                System.exit(0);
-
+                System.out.println("retour au menu");
+                Pause.showMainMenu();
             }
         }
     }
-
-
-
 }

@@ -15,7 +15,6 @@ public class Wizard extends Personnage {
         super(name, type);
         this.setLeftArm(new MagicArrow());
         this.setRightArm(new BasicPotion());
-        this.setForce(15 + getLeftArm().getPowerWeapon());
-        this.setLife(6+ getRightArm().getPowerArmor());
+        this.setForce(this.getForce() + this.getLeftArm().getPowerWeapon());
     }
 }

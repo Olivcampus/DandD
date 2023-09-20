@@ -72,6 +72,6 @@ public abstract class Personnage {
 
     @Override
     public String toString() {
-        return "votre nom : " + name + " vie :" + life + " force : " + force + " votre classe :" + type + " votre équipement : " + leftArm + " et " + rightArm + ".";
+        return "votre nom : " + name + " |vie :" + life + " |force : " + force + " |votre classe : " + type + " |votre équipement : " + leftArm.getWeaponName() +  " |d'une puissance de " + leftArm.getPowerWeapon() + " et aussi une " + rightArm.getArmorName() + " d'une résistance de : " + rightArm.getPowerArmor() + " d'armure.";
     }
 }

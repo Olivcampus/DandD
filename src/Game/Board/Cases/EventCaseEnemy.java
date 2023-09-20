@@ -41,19 +41,22 @@ public class EventCaseEnemy {
                 enemy = new Witch();
                 break;
             case 7:
-                enemy = new WitheRabbit();
+                enemy = new WhiteRabbit();
                 break;
         }
     }
 
     public void fightMonster(int playerPosition, int boardSize, Personnage player, Board plateaux, int de) {
-        System.out.println("vous allez affronter un " + enemy.getName() + " d'une force de : " + enemy.getForce() + "et d'une santé de " + enemy.getLife() + "PV");
+        System.out.println("vous allez affronter un "  + enemy.getType() + "du nom de : " + enemy.getName() + " d'une force de : " + enemy.getForce() + "et d'une santé de " + enemy.getLife() + "PV");
         while (player.getLife() >= 0 || enemy.getLife() >= 0) {
-
+            System.out.println("vous avez une force de : " + player.getForce() + " et une vie de : " + player.getLife());
             System.out.println("voulez vous : 1 :vous battre  2: fuir ?");
             int choice = show.nextInt();
             if (choice == 1) {
-
+                enemy.setForce(enemy.getForce()- player.getRightArm().getPowerArmor());
+                if (enemy.getForce() < 0){
+                    enemy.setForce(0);
+                }
                 if ((player.getLife() > 0) && (enemy.getLife() > 0)) {
                     player.setLife(player.getLife() - enemy.getForce());
                     enemy.setLife(enemy.getLife() - player.getForce());

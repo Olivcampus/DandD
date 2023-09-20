@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 public class EventCaseDefenseLoot {
     EquipmentDefensive loot;
-    EquipmentDefensive oldLoot;
     Scanner show = new Scanner(System.in);
     Game resume = new Game();
 
@@ -72,9 +71,7 @@ public class EventCaseDefenseLoot {
         System.out.println("voulez vous équiper votre personnage avec tapez 1 pour oui, 2 pour non");
         int lootequip = show.nextInt();
         if (lootequip == 1) {
-            oldLoot = player.getRightArm();
             player.setRightArm(loot);
-            player.setLife(player.getLife() + player.getRightArm().getPowerArmor() - oldLoot.getPowerArmor());
             System.out.println("Le changement est bien éffectué");
         }
         if (lootequip == 2) {

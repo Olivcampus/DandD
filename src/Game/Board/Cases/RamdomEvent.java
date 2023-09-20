@@ -15,7 +15,7 @@ public  class RamdomEvent implements Cases {
         if (ramdomEvent == 3) {
             EventCaseDefenseLoot(playerPosition, boardSize, player, plateaux, de);
         }
-        if (ramdomEvent == 4 || ramdomEvent == 6) {
+        if (ramdomEvent == 4 ) {
             EventCaseAddHealth(playerPosition, boardSize, player, plateaux, de);
         }
     }

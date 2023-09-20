@@ -1,26 +1,24 @@
 package equipement.Defense;
 
 public class EquipmentDefensive {
-        private final String armorType ;
-        private final String armorName ;
-        private final int powerArmor;
+        private String armorType ;
+        private String armorName ;
+        private int powerArmor;
         public  EquipmentDefensive(String armorType, String armorName, int powerArmor){
             this.armorType = armorType;
             this.armorName = armorName;
             this.powerArmor = powerArmor;
         }
 
-  /*  public String getArmorType() { return armorType; }
+   // public String getArmorType() { return armorType; }
 
     public String getArmorName() {
         return armorName;
-    }*/
-
-    public int getPowerArmor() {
-        return powerArmor;
     }
-/*
-    public void setArmorType(String armorType){
+
+    public int getPowerArmor() { return powerArmor; }
+
+  /*  public void setArmorType(String armorType){
             this.armorType=armorType;
         }
 
@@ -28,8 +26,8 @@ public class EquipmentDefensive {
             this.armorName = armorName;
         }
 
-        public void setPowerArmor (int powerArmor){
-            this.powerArmor=powerArmor;
+        public void setPowerArmor (int powerArmor) {
+            this.powerArmor = powerArmor;
         }*/
     @Override
     public String toString() {

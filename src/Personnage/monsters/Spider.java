@@ -6,7 +6,7 @@ public class Spider extends Personnage {
 
     public Spider(){
 
-        super("Angie");
+        super("Angie", "Spider");
         this.setForce(8);
         this.setLife(8);
     }
