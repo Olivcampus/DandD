@@ -1,11 +1,11 @@
 package Personnage;
 
 import equipement.Attack.EquipmentOffensive;
-import equipement.defense.EquipmentDefensive;
+import equipement.Defense.EquipmentDefensive;
 
 public abstract class Personnage {
 
-    private String name;
+    private final String name;
     private int life;
     private int force;
     public String type;

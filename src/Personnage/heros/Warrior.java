@@ -2,8 +2,7 @@ package Personnage.heros;
 
 import equipement.Attack.weapon.WoodSword;
 import Personnage.Personnage;
-import equipement.defense.shield.WoodShield;
-import java.util.Arrays;
+import equipement.Defense.shield.WoodShield;
 
 public class Warrior extends Personnage {
     /**

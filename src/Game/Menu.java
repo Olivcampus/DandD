@@ -3,8 +3,8 @@ package Game;
 import Personnage.Personnage;
 import Personnage.heros.Warrior;
 import Personnage.heros.Wizard;
-import Game.Board.Board;
-import Game.Board.Game;
+import Game.Board.Play.Board;
+import Game.Board.Play.Game;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -79,12 +79,13 @@ public class Menu {
         System.out.println("appuyer sur 2 pour recommencer ");
         int choice = sc.nextInt();
         if (choice == 1) {
+            int de=0;
             Game start = new Game();
             Board plateaux = new Board();
             int boardSize = plateaux.boardSize();
             System.out.println(boardSize);
             int playerPosition = 1;
-            start.playTurn(playerPosition, boardSize, current, plateaux);
+            start.playTurn(playerPosition, boardSize, current, plateaux, de);
             showMainMenu();
         }
 

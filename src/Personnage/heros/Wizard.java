@@ -1,7 +1,7 @@
 package Personnage.heros;
 
-import equipement.Attack.spell.FireBall;
-import equipement.defense.potion.BasicPotion;
+import equipement.Attack.spell.MagicArrow;
+import equipement.Defense.potion.BasicPotion;
 import Personnage.Personnage;
 
 public class Wizard extends Personnage {
@@ -13,7 +13,7 @@ public class Wizard extends Personnage {
 
     public Wizard (String name, String type) {
         super(name, type);
-        this.setLeftArm(new FireBall());
+        this.setLeftArm(new MagicArrow());
         this.setRightArm(new BasicPotion());
         this.setForce(15 + getLeftArm().getPowerWeapon());
         this.setLife(6+ getRightArm().getPowerArmor());

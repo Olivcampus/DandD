@@ -1,4 +1,4 @@
-package Game.Board;
+package Game.Board.Play;
 
 import java.util.Scanner;
 import java.util.ArrayList;

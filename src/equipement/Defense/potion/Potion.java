@@ -1,5 +1,5 @@
-package equipement.defense.potion;
-import equipement.defense.EquipmentDefensive;
+package equipement.Defense.potion;
+import equipement.Defense.EquipmentDefensive;
 public class Potion extends EquipmentDefensive {
     public Potion (String armorName, int powerArmor){
         super ("potion", armorName, powerArmor);
