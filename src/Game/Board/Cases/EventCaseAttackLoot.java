@@ -26,43 +26,25 @@ public class EventCaseAttackLoot {
         int lootChoice = 1 + (int) (Math.random() * ((5 - 1) + 1));
 
         if (Objects.equals(player.getType(), "Warrior")) {
-            switch (lootChoice) {
-                case 1:
-                    loot = new IronSword();
-                    break;
-                case 2:
-                    loot = new FireSword();
-                    break;
-                case 3:
-                    loot = new IceSword();
-                    break;
-                case 4:
-                    loot = new IronHammer();
-                    break;
-                case 5:
-                    loot = new TriforceSword();
-                    break;
-            }
+           loot =switch (lootChoice) {
+                case 1-> new IronSword();
+                case 2-> new FireSword();
+                case 3-> new IceSword();
+                case 4-> new IronHammer();
+                case 5-> new TriforceSword();
+                default -> new WoodSword();
+            };
         }
 
         if (Objects.equals(player.getType(), "Wizard")) {
-            switch (lootChoice) {
-                case 1:
-                    loot = new FireBall();
-                    break;
-                case 2:
-                    loot = new IceBall();
-                    break;
-                case 3:
-                    loot = new MeteorShower();
-                    break;
-                case 4:
-                    loot = new Implosion();
-                    break;
-                case 5:
-                    loot = new EarthQuake();
-                    break;
-            }
+            loot = switch (lootChoice) {
+                case 1-> new FireBall();
+                case 2-> new IceBall();
+                case 3-> new MeteorShower();
+                case 4-> new Implosion();
+                case 5-> new EarthQuake();
+                default -> new MagicArrow();
+            };
         }
     }
 

@@ -5,6 +5,7 @@ import Personnage.heros.Warrior;
 import Personnage.heros.Wizard;
 import Game.Board.Play.Board;
 import Game.Board.Play.Game;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,16 +27,16 @@ public class Menu {
         System.out.println("3 : quittez le jeux");
         System.out.println("veuillez saisir votre choix");
         int choice = sc.nextInt();
-        if (choice == 1) {
-            Warrior warrior = new Warrior();
-            warriors.add(warrior);
-            confirmChoice(warrior);
-        }
-        if (choice == 2) {
-            StartNewGame();
-        }
-        if (choice == 3) {
-            System.out.println("merci au revoir !");
+        switch (choice) {
+            case 1:
+                Warrior warrior = new Warrior();
+                warriors.add(warrior);
+                confirmChoice(warrior);
+                break;
+            case 2:
+                StartNewGame();
+            case 3:
+                System.out.println("merci au revoir !");
         }
     }
 
@@ -60,8 +61,7 @@ public class Menu {
             Wizard wizard = new Wizard(name, "Wizard");
             wizards.add(wizard);
             confirmChoice(wizard);
-        }
-        else {
+        } else {
             System.out.println("Nom ou/et type non renseigné, veuillez recommencer");
             StartNewGame();
         }
@@ -77,16 +77,17 @@ public class Menu {
         System.out.println("appuyer sur 1 pour oui");
         System.out.println("appuyer sur 2 pour recommencer ");
         int choice = sc.nextInt();
-        if (choice == 1) {
-            int de=0;
-            Game start = new Game();
-            Board plateaux = new Board();
-            int boardSize = plateaux.boardSize();
-            int playerPosition = 1;
-            start.playTurn(playerPosition, boardSize, current, plateaux, de);
-        }
-        if (choice == 2) {
-            StartNewGame();
+        switch (choice) {
+            case 1:
+                int de = 0;
+                Game start = new Game();
+                Board plateaux = new Board();
+                int boardSize = plateaux.boardSize();
+                int playerPosition = 1;
+                start.playTurn(playerPosition, boardSize, current, plateaux, de);
+                break;
+            case 2:
+                StartNewGame();
         }
     }
 }

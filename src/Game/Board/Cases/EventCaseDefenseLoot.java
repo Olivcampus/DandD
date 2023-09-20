@@ -25,43 +25,25 @@ public class EventCaseDefenseLoot {
         int lootChoice = 1 + (int) (Math.random() * ((5 - 1) + 1));
 
         if (Objects.equals(player.getType(), "Warrior")) {
-            switch (lootChoice) {
-                case 1:
-                    loot = new IronShield();
-                    break;
-                case 2:
-                    loot = new GoldArmor();
-                    break;
-                case 3:
-                    loot = new LongShield();
-                    break;
-                case 4:
-                    loot = new MagicShield();
-                    break;
-                case 5:
-                    loot = new DragonArmor();
-                    break;
-            }
+            loot=  switch (lootChoice) {
+                case 1-> new IronShield();
+                case 2-> new GoldArmor();
+                case 3-> new LongShield();
+                case 4-> new MagicShield();
+                case 5-> new DragonArmor();
+                default -> new WoodShield();
+            };
         }
 
         if (Objects.equals(player.getType(), "Wizard")) {
-            switch (lootChoice) {
-                case 1:
-                    loot = new AdvancePotion();
-                    break;
-                case 2:
-                    loot = new DragonPotion();
-                    break;
-                case 3:
-                    loot = new DruidPotion();
-                    break;
-                case 4:
-                    loot = new MagicPotion();
-                    break;
-                case 5:
-                    loot = new QualityPotion();
-                    break;
-            }
+            loot = switch (lootChoice) {
+                case 1-> new AdvancePotion();
+                case 2-> new DragonPotion();
+                case 3-> new DruidPotion();
+                case 4-> new MagicPotion();
+                case 5-> new QualityPotion();
+                default -> new BasicPotion();
+            };
         }
     }
 
