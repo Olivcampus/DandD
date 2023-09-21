@@ -1,10 +1,11 @@
 package Game;
 
+import Game.Board.Cases.GenerateCaseInBoard;
+import Game.Board.DialogBox;
 import Personnage.Personnage;
-import Personnage.heros.Warrior;
-import Personnage.heros.Wizard;
-import Game.Board.Play.Board;
-import Game.Board.Play.Game;
+import Personnage.heros.*;
+import Game.Board.Play.*;
+import Personnage.heros.HerosPreset.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -13,30 +14,48 @@ public class Menu {
     Scanner sc = new Scanner(System.in);
     ArrayList<Warrior> warriors = new ArrayList<>();
     ArrayList<Wizard> wizards = new ArrayList<>();
+    Warrior warrior = new Warrior();
+    DialogBox dialogBox = new DialogBox();
 
-
+    int boardSize;
     /**
      * Menu Principal du jeu
      */
     public void showMainMenu() {
+        dialogBox.dialogMainMenu();
 
-        System.out.println("Bienvenue dans le donjon de Naheulbeuk!");
-        System.out.println("Menu principal");
-        System.out.println("1 : nouvelle partie rapide");
-        System.out.println("2 : nouvelle partie personnalisée");
-        System.out.println("3 : quittez le jeux");
-        System.out.println("veuillez saisir votre choix");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
-                Warrior warrior = new Warrior();
                 warriors.add(warrior);
                 confirmChoice(warrior);
                 break;
+
             case 2:
-                StartNewGame();
+                classPreset();
+                break;
             case 3:
+                StartNewGame();
+                break;
+            case 4:
                 System.out.println("merci au revoir !");
+                break;
+        }
+
+    }
+
+    public void classPreset() {
+        System.out.println("choisissez votre classe : tapez  1 pour guerrier ou 2 pour sorcier");
+        int classChoice = sc.nextInt();
+        switch (classChoice) {
+            case 1:
+                Warrior player= new DefaultWarrior();
+                warriors.add(player);
+                confirmChoice(player);
+            case 2:
+                Wizard wizard = new DefaultWizard();
+                wizards.add(new DefaultWizard());
+                confirmChoice(wizard);
         }
     }
 
@@ -52,13 +71,13 @@ public class Menu {
         System.out.println(type);
 
         if (!name.isEmpty() && type == 1) {
-            Warrior warrior = new Warrior(name, "Warrior");
+            Warrior warrior = new Warrior(name);
             warriors.add(warrior);
             confirmChoice(warrior);
         }
 
         if (!name.isEmpty() && type == 2) {
-            Wizard wizard = new Wizard(name, "Wizard");
+            Wizard wizard = new Wizard(name);
             wizards.add(wizard);
             confirmChoice(wizard);
         } else {
@@ -75,19 +94,24 @@ public class Menu {
         System.out.println(current);
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
-        System.out.println("appuyer sur 2 pour recommencer ");
+        System.out.println("appuyer sur 2 pour retourner au menu Principal ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
-                int de = 0;
-                Game start = new Game();
-                Board plateaux = new Board();
-                int boardSize = plateaux.boardSize();
-                int playerPosition = 1;
-                start.playTurn(playerPosition, boardSize, current, plateaux, de);
+                createGame(current);
                 break;
             case 2:
-                StartNewGame();
+                showMainMenu();
+                break;
         }
+    }
+    public void createGame(Personnage current){
+        int de = 0;
+        Game start = new Game();
+        GenerateCaseInBoard plateaux = new GenerateCaseInBoard();
+        plateaux.boardSize(boardSize);
+
+        int playerPosition = 1;
+        start.playTurn(playerPosition, boardSize, current, plateaux, de);
     }
 }

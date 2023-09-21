@@ -10,7 +10,9 @@ public class Wizard extends Personnage {
      * Création du Sorcier
      * @Personnage pour hériter des valeurs par défaut
      */
-
+    public Wizard (String name){
+        this(name, "Wizard");
+    }
     public Wizard (String name, String type) {
         super(name, type);
         this.setLeftArm(new MagicArrow());

@@ -10,7 +10,7 @@ public class EquipmentDefensive {
             this.powerArmor = powerArmor;
         }
 
-   // public String getArmorType() { return armorType; }
+public String getArmorType() { return armorType; }
 
     public String getArmorName() {
         return armorName;

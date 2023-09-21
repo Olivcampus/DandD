@@ -1,14 +1,16 @@
 package Game.Board.Cases;
 
-import Game.Board.Play.Board;
 import Game.Board.Play.Game;
 import Personnage.Personnage;
 
-public class EventCaseAddHealth {
+public class EventCaseHealth {
     Game resume = new Game();
-    public EventCaseAddHealth(int playerPosition, int boardSize, Personnage player, Board plateaux, int de){
+    public void eventCaseAddHealth(){
         System.out.println("vous trouvez une fontaine de soin vous gagnez 20 PV");
+
+
+    }
+    public void healthPlayer(Personnage player){
         player.setLife( player.getLife() + 20 );
-        resume.playTurn(playerPosition, boardSize, player, plateaux, de);
     }
 }

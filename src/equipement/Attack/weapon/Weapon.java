@@ -4,6 +4,6 @@ import equipement.Attack.EquipmentOffensive;
 
 public class Weapon extends EquipmentOffensive {
     public Weapon(String WeaponName, int powerWeapon){
-        super("Sword", WeaponName, powerWeapon);
+        super("Warrior", WeaponName, powerWeapon);
     }
 }
