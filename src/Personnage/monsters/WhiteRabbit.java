@@ -4,7 +4,7 @@ import Personnage.Personnage;
 
 public class WhiteRabbit extends Personnage {
 
-    public WhiteRabbit(){
+    public WhiteRabbit() {
 
         super("Nolan", "Le lapin blanc");
         this.setForce(100);

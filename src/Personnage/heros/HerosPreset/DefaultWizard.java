@@ -3,7 +3,7 @@ package Personnage.heros.HerosPreset;
 import Personnage.heros.Wizard;
 
 public class DefaultWizard extends Wizard {
-    public DefaultWizard(){
+    public DefaultWizard() {
         super("DefWizard");
     }
 }

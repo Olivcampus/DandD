@@ -12,6 +12,7 @@ public class DialogBox {
         System.out.println("4 : quittez le jeux");
         System.out.println("veuillez saisir votre choix");
     }
+
     public void dialogBoxGame(int playerPosition, int boardSize, Personnage player) {
         System.out.println("votre position est " + playerPosition + "/" + boardSize);
         System.out.println("votre santé actuelle : " + player.getLife() + " PV, votre force actuelle : " + player.getForce() + " points et votre armure actuelle : " + player.getRightArm().getPowerArmor() + " de résistance");

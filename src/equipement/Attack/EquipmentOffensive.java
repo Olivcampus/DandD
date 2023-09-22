@@ -1,24 +1,14 @@
 package equipement.Attack;
 
-public class  EquipmentOffensive {
-    private String WeaponType ;
-    private String WeaponName ;
-    private int powerWeapon;
-    public EquipmentOffensive(String WeaponType, String WeaponName, int powerWeapon ){
+public class EquipmentOffensive {
+    private final String WeaponType;
+    private final String WeaponName;
+    private final int powerWeapon;
+
+    public EquipmentOffensive(String WeaponType, String WeaponName, int powerWeapon) {
         this.WeaponType = WeaponType;
         this.WeaponName = WeaponName;
         this.powerWeapon = powerWeapon;
-    }
-    public void setWeaponType(String WeaponType){
-        this.WeaponType = WeaponType;
-    }
-
-    public void setWeaponName(String WeaponName){
-        this.WeaponName=WeaponName;
-    }
-
-    public void setPowerWeapon(int powerWeapon){
-        this.powerWeapon=powerWeapon;
     }
 
     public String getWeaponType() {
@@ -35,6 +25,6 @@ public class  EquipmentOffensive {
 
     @Override
     public String toString() {
-        return " une arme de type :" + WeaponType + ", du nome de :  "+  WeaponName + " et d'une puissance de : " +powerWeapon;
+        return " une arme de type :" + WeaponType + ", du nom de :  " + WeaponName + " et d'une puissance de : " + powerWeapon;
     }
 }

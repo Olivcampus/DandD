@@ -1,23 +1,19 @@
 package Game.Board.Cases;
 
+import Game.InputScanner;
 import Personnage.Personnage;
 import equipement.Attack.EquipmentOffensive;
 import equipement.Attack.spell.*;
 import equipement.Attack.weapon.*;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 public class EventCaseAttackLoot {
     EquipmentOffensive loot;
     EquipmentOffensive oldLoot;
-    Scanner show = new Scanner(System.in);
 
-
-
-    public void generateAttackLoot() {
+    public EquipmentOffensive generateAttackLoot() {
         int lootChoice = 1 + (int) (Math.random() * ((10 - 1) + 1));
-
         loot = switch (lootChoice) {
             case 1 -> new IronSword();
             case 2 -> new FireSword();
@@ -31,9 +27,10 @@ public class EventCaseAttackLoot {
             case 10 -> new EarthQuake();
             default -> new MagicArrow();
         };
+        return loot;
     }
 
-    public void equipAtackloot(Personnage player) {
+    public void equipAttackLoot(Personnage player) {
         oldLoot = player.getLeftArm();
         if (Objects.equals(loot.getWeaponType(), player.type)) {
             if (Objects.equals(oldLoot.getWeaponName(), loot.getWeaponName())) {
@@ -44,7 +41,7 @@ public class EventCaseAttackLoot {
                     System.out.println("vous avez trouvé un équipement suivant : " + loot);
                     System.out.println("votre équipement actuel : " + player.getLeftArm());
                     System.out.println("voulez vous équiper votre personnage avec tapez 1 pour oui, 2 pour non");
-                    int lootequip = show.nextInt();
+                    int lootequip = new InputScanner().intInputScanner();
                     if (lootequip == 1) {
                         player.setLeftArm(loot);
                         player.setForce(player.getForce() + player.getLeftArm().getPowerWeapon() - oldLoot.getPowerWeapon());

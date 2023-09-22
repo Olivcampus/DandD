@@ -4,7 +4,7 @@ import Personnage.Personnage;
 
 public class Spider extends Personnage {
 
-    public Spider(){
+    public Spider() {
 
         super("Angie", "Spider");
         this.setForce(8);

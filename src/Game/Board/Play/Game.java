@@ -1,9 +1,10 @@
 package Game.Board.Play;
 
+import Game.InputScanner;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
-import Game.Board.Cases.GenerateCaseInBoard;
+import Game.Board.Cases.*;
 import Game.Board.DialogBox;
 import Game.Menu;
 import Game.exception.PlayerOutOfBoardException;
@@ -11,7 +12,6 @@ import Personnage.Personnage;
 
 public class Game {
     Menu Pause = new Menu();
-
     DialogBox dialogBox = new DialogBox();
 
     /**
@@ -20,38 +20,29 @@ public class Game {
      * @Board pour le plateau
      * @menu pour modifier le personnage
      */
-    public void playTurn(int playerPosition, int boardSize, Personnage player, GenerateCaseInBoard plateaux, int de) {
+
+    public void playTurn(int playerPosition, int boardSize, Personnage player, ArrayList<Object> plateaux) {
         Move move = new Move();
-        GenerateCaseInBoard RandomEvent = new GenerateCaseInBoard();
-        Scanner clavier = new Scanner(System.in);
+        System.out.println(plateaux);
         while (playerPosition <= boardSize) {
             if (playerPosition == 1) System.out.println("La partie démarre");
-            dialogBox.dialogBoxGame( playerPosition,  boardSize,  player);
-            int choice = clavier.nextInt();
+            dialogBox.dialogBoxGame(playerPosition, boardSize, player);
+            int choice = new InputScanner().intInputScanner();
             if (choice == 1) {
 
                 if (playerPosition < boardSize) {
 
                     try {
                         playerPosition = move.MovePlayer(playerPosition, boardSize);
-
                     } catch (PlayerOutOfBoardException e) {
-
                         System.out.println("votre position est de " + playerPosition + " " + e.getMessage());
-
                     } finally {
                         playerPosition = move.MoveException(playerPosition, boardSize);
                     }
-
-                }
-
-                if (playerPosition == boardSize) {
-                    new WinGame(playerPosition);
+                    new CheckPosition(playerPosition, boardSize, player, plateaux);
                 }
             }
-
             if (choice == 2) {
-
                 Pause.StartNewGame();
             }
             if (choice == 3) {

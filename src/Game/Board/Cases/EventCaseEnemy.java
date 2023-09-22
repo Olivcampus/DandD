@@ -1,18 +1,14 @@
 package Game.Board.Cases;
 
 
-import Game.Board.Play.Game;
 import Personnage.Personnage;
 import Personnage.monsters.*;
 import Game.Menu;
 
-import java.util.Scanner;
-
+import Game.InputScanner;
 
 public class EventCaseEnemy {
     Personnage enemy;
-    Scanner show = new Scanner(System.in);
-    Game resume = new Game();
 
 
     public Personnage generateMonster() {
@@ -43,28 +39,38 @@ public class EventCaseEnemy {
         return enemy;
     }
 
-    public void fightMonster(int playerPosition, int boardSize, Personnage player, GenerateCaseInBoard plateaux, int de) {
+    public void fightMonster(int playerPosition, Personnage player) {
         System.out.println("vous allez affronter un " + enemy.getType() + " du nom de : " + enemy.getName() + " d'une force de : " + enemy.getForce() + " points et d'une santé de " + enemy.getLife() + "PV");
         while (player.getLife() >= 0 || enemy.getLife() >= 0) {
             System.out.println("vous avez une force de : " + player.getForce() + " ,une vie de : " + player.getLife() + " et une résistance de " + player.getRightArm().getPowerArmor());
             if ((player.getLife() > 0) && (enemy.getLife() > 0)) {
                 System.out.println("voulez vous : 1 :vous battre  2: fuir ?");
-                int choice = show.nextInt();
+                int choice = new InputScanner().intInputScanner();
                 if (choice == 1) {
                     enemy.setForce(enemy.getForce() - player.getRightArm().getPowerArmor());
                     if (enemy.getForce() < 0) {
                         enemy.setForce(0);
                     }
-                    player.setLife(player.getLife() - enemy.getForce());
                     enemy.setLife(enemy.getLife() - player.getForce());
-                    System.out.println("il vous reste " + player.getLife() + " PV et à votre ennemie " + enemy.getLife() + " PV");
-                }
-                    if (choice == 2) {
-                        System.out.println("vous fuyez");
-                        playerPosition--;
-                        resume.playTurn(playerPosition, boardSize, player, plateaux, de);
+                    if (enemy.getLife() > 0) {
+                        player.setLife(player.getLife() - enemy.getForce());
                     }
-
+                    int ramdomEvent = 1 + (int) (Math.random() * ((6 - 1) + 1));
+                    if (ramdomEvent <= 3) {
+                        System.out.println("l'ennemie à fui ");
+                        return;
+                    } else {
+                        System.out.println("il vous reste " + player.getLife() + " PV et à votre ennemie " + enemy.getLife() + " PV");
+                    }
+                }
+                if (choice == 2) {
+                    System.out.println("vous fuyez");
+                    int ramdomPosition = 1 + (int) (Math.random() * ((6 - 1) + 1));
+                    if (playerPosition < ramdomPosition) {
+                        playerPosition = 1;
+                    }
+                    playerPosition -= ramdomPosition;
+                }
             }
             if (player.getLife() <= 0) {
                 System.out.println("vous avez succombé");
@@ -73,7 +79,7 @@ public class EventCaseEnemy {
                 start.showMainMenu();
             } else {
                 System.out.println("vous avez vaincu " + enemy.getName());
-                resume.playTurn(playerPosition, boardSize, player, plateaux, de);
+                return;
             }
         }
 

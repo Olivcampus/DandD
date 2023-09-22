@@ -10,9 +10,13 @@ public class Warrior extends Personnage {
      *
      * @Personnage pour hériter des valeurs par défaut
      */
-    public Warrior() {this("Noname");}
+    public Warrior() {
+        this("Noname");
+    }
 
-    public Warrior(String name) {this(name, "Warrior");}
+    public Warrior(String name) {
+        this(name, "Warrior");
+    }
 
     public Warrior(String name, String type) {
         super(name, type);

@@ -1,7 +1,7 @@
 package equipement.Defense.shield;
 
 public class LongShield extends Shield {
-    public LongShield(){
+    public LongShield() {
         super("bouclier long", 40);
     }
 }

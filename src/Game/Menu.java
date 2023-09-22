@@ -4,27 +4,26 @@ import Game.Board.Cases.GenerateCaseInBoard;
 import Game.Board.DialogBox;
 import Personnage.Personnage;
 import Personnage.heros.*;
-import Game.Board.Play.*;
+
 import Personnage.heros.HerosPreset.*;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Menu {
-    Scanner sc = new Scanner(System.in);
+
     ArrayList<Warrior> warriors = new ArrayList<>();
     ArrayList<Wizard> wizards = new ArrayList<>();
     Warrior warrior = new Warrior();
     DialogBox dialogBox = new DialogBox();
 
-    int boardSize;
     /**
      * Menu Principal du jeu
      */
     public void showMainMenu() {
         dialogBox.dialogMainMenu();
 
-        int choice = sc.nextInt();
+        int choice = new InputScanner().intInputScanner();
         switch (choice) {
             case 1:
                 warriors.add(warrior);
@@ -46,10 +45,10 @@ public class Menu {
 
     public void classPreset() {
         System.out.println("choisissez votre classe : tapez  1 pour guerrier ou 2 pour sorcier");
-        int classChoice = sc.nextInt();
+        int classChoice = new InputScanner().intInputScanner();
         switch (classChoice) {
             case 1:
-                Warrior player= new DefaultWarrior();
+                Warrior player = new DefaultWarrior();
                 warriors.add(player);
                 confirmChoice(player);
             case 2:
@@ -63,11 +62,11 @@ public class Menu {
      * Permet la création ou la modification des personages
      */
     public void StartNewGame() {
-        Scanner sc = new Scanner(System.in);
+
         System.out.println("Choisissez un nom :");
-        String name = sc.nextLine();
+        String name = new InputScanner().strInputScanner();
         System.out.println("Choisissez une classe , tapez 1 pour guerrier, 2 pour sorcier");
-        int type = sc.nextInt();
+        int type = new InputScanner().intInputScanner();
         System.out.println(type);
 
         if (!name.isEmpty() && type == 1) {
@@ -95,7 +94,7 @@ public class Menu {
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
         System.out.println("appuyer sur 2 pour retourner au menu Principal ");
-        int choice = sc.nextInt();
+        int choice = new InputScanner().intInputScanner();
         switch (choice) {
             case 1:
                 createGame(current);
@@ -105,13 +104,8 @@ public class Menu {
                 break;
         }
     }
-    public void createGame(Personnage current){
-        int de = 0;
-        Game start = new Game();
-        GenerateCaseInBoard plateaux = new GenerateCaseInBoard();
-        plateaux.boardSize(boardSize);
 
-        int playerPosition = 1;
-        start.playTurn(playerPosition, boardSize, current, plateaux, de);
+    public void createGame(Personnage current) {
+        new GenerateCaseInBoard(current);
     }
 }
