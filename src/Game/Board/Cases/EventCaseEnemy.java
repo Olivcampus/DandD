@@ -7,10 +7,11 @@ import Game.Menu;
 
 import Game.InputScanner;
 
+import java.util.ArrayList;
+
 public class EventCaseEnemy {
     Personnage enemy;
-
-
+    ArrayList<Personnage> Enemy = new ArrayList<>();
     public Personnage generateMonster() {
         int monsterChoice = 1 + (int) (Math.random() * ((7 - 1) + 1));
         switch (monsterChoice) {
@@ -36,6 +37,7 @@ public class EventCaseEnemy {
                 enemy = new WhiteRabbit();
                 break;
         }
+        Enemy.add(enemy);
         return enemy;
     }
 
@@ -85,5 +87,3 @@ public class EventCaseEnemy {
 
     }
 }
-
-

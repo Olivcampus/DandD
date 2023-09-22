@@ -7,9 +7,6 @@ import Personnage.Personnage;
 import java.util.ArrayList;
 
 public class GenerateCaseInBoard {
-    EventCaseEnemy monster = new EventCaseEnemy();
-    EventCaseDefenseLoot defLoot = new EventCaseDefenseLoot();
-    EventCaseAttackLoot attLoot = new EventCaseAttackLoot();
     ArrayList<Object> plateaux = new ArrayList<>();
     int boardSize;
 
@@ -34,18 +31,18 @@ public class GenerateCaseInBoard {
     }
 
     public void setEventAtBoard(int i) {
-        int max = 5;
-        int min = 1;
-        int range = max - min + 1;
-        int ramdomEvent = (int) (Math.random() * range) + min;
+        int ramdomEvent = 1 + (int) (Math.random() * ((5 - 1) + 1));
 
         if (ramdomEvent == 1) {
+            EventCaseEnemy monster = new EventCaseEnemy();
             plateaux.set(i, monster.generateMonster());
         }
         if (ramdomEvent == 2) {
+            EventCaseAttackLoot attLoot = new EventCaseAttackLoot();
             plateaux.set(i, attLoot.generateAttackLoot());
         }
         if (ramdomEvent == 3) {
+            EventCaseDefenseLoot defLoot = new EventCaseDefenseLoot();
             plateaux.set(i, defLoot.generateDefenseLoot());
         }
         if (ramdomEvent == 4) {
