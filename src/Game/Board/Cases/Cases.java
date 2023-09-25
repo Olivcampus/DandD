@@ -1,12 +1,13 @@
 package Game.Board.Cases;
 
+
 import Personnage.Personnage;
-import equipement.Attack.EquipmentOffensive;
-import equipement.Defense.EquipmentDefensive;
 
 public interface Cases {
-    Personnage generateMonster();
-    EquipmentOffensive generateAttackLoot();
-    EquipmentDefensive generateDefenseLoot();
+    void equipAttackLoot(Personnage player);
+    void equipDefenseLoot(Personnage player);
+    void fightMonster(int playerPosition, Personnage player);
+    void healthPlayer(Personnage player);
+
 
 }

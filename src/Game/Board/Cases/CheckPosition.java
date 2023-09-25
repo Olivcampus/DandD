@@ -5,27 +5,55 @@ import Personnage.Personnage;
 
 import java.util.ArrayList;
 
-public class CheckPosition {
+public class CheckPosition implements Cases {
 
-    public CheckPosition(int playerPosition, int boardSize, Personnage player, ArrayList<Object> plateaux) {
+    public CheckPosition(int playerPosition, int boardSize, Personnage player, ArrayList<CreateCases> plateaux) {
         if (playerPosition == boardSize) {
             new WinGame(playerPosition);
         }
-        if (plateaux.get(playerPosition) instanceof EventCaseEnemy eventEnemy) {
-            eventEnemy.fightMonster(playerPosition, player);
+        else if (plateaux.get(playerPosition) instanceof EventCaseEnemy ) {
+            System.out.println("younes bosse");
+            fightMonster(playerPosition, player);
         }
-        if (plateaux.get(playerPosition) instanceof EventCaseHealth eventHealth) {
+        else if (plateaux.get(playerPosition) instanceof EventCaseHealth eventHealth) {
             System.out.println(eventHealth);
-            eventHealth.healthPlayer(player);
+            healthPlayer(player);
         }
-        if (plateaux.get(playerPosition) instanceof EventCaseDefenseLoot eventDefLoot) {
-            eventDefLoot.equipDefenseLoot(player);
+        else if (plateaux.get(playerPosition) instanceof EventCaseDefenseLoot ) {
+            System.out.println("younes");
+            equipDefenseLoot(player);
         }
-        if (plateaux.get(playerPosition) instanceof EventCaseNothing eventNothing) {
+        else if (plateaux.get(playerPosition) instanceof EventCaseNothing eventNothing) {
             System.out.println(eventNothing);
         }
-        if (plateaux.get(playerPosition) instanceof EventCaseAttackLoot eventAttLoot) {
-            eventAttLoot.equipAttackLoot(player);
+        else  if (plateaux.get(playerPosition) instanceof EventCaseAttackLoot ) {
+            System.out.println("fuck");
+            equipAttackLoot(player);
         }
+    }
+
+    @Override
+    public void equipAttackLoot(Personnage player) {
+        EventCaseAttackLoot attLoot = new EventCaseAttackLoot();
+        attLoot.equipAttackLoot(player);
+
+    }
+
+    @Override
+    public void equipDefenseLoot(Personnage player) {
+        EventCaseDefenseLoot defLoot = new EventCaseDefenseLoot();
+        defLoot.equipDefenseLoot(player);
+    }
+
+    @Override
+    public void fightMonster(int playerPosition, Personnage player) {
+        EventCaseEnemy fight = new EventCaseEnemy();
+        fight.fightMonster(playerPosition, player);
+    }
+
+    @Override
+    public void healthPlayer(Personnage player) {
+        EventCaseHealth health = new EventCaseHealth();
+        health.healthPlayer(player);
     }
 }

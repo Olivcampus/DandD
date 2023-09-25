@@ -3,9 +3,16 @@ package Game.Board.Play;
 import Game.exception.PlayerOutOfBoardException;
 
 public class Move {
-    int de;
+    private int de;
+    private final int boardSize;
+    private int playerPosition;
 
-    public int MovePlayer(int playerPosition, int boardSize) throws PlayerOutOfBoardException {
+    public Move(int boardSize, int playerPosition) {
+        this.boardSize = boardSize;
+        this.playerPosition = playerPosition;
+    }
+
+    public int movePlayer() throws PlayerOutOfBoardException {
         if (playerPosition < boardSize) {
             de = 1 + (int) (Math.random() * ((6 - 1) + 1));
             playerPosition += de;
@@ -15,7 +22,7 @@ public class Move {
         return playerPosition;
     }
 
-    public int MoveException(int playerPosition, int boardSize) {
+    public int moveException() {
         if (playerPosition > boardSize) {
             playerPosition -= de;
             System.out.println("retour en position " + playerPosition);

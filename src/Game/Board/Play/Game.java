@@ -13,6 +13,7 @@ import Personnage.Personnage;
 public class Game {
     Menu Pause = new Menu();
     DialogBox dialogBox = new DialogBox();
+    private final InputScanner inputScanner = new InputScanner();
 
     /**
      * S'occupe du bon déroulement du jeu
@@ -21,23 +22,22 @@ public class Game {
      * @menu pour modifier le personnage
      */
 
-    public void playTurn(int playerPosition, int boardSize, Personnage player, ArrayList<Object> plateaux) {
-        Move move = new Move();
-        System.out.println(plateaux);
+    public void playTurn(int playerPosition, int boardSize, Personnage player, ArrayList<CreateCases> plateaux) {
+        Move move = new Move(boardSize, playerPosition);
         while (playerPosition <= boardSize) {
             if (playerPosition == 1) System.out.println("La partie démarre");
             dialogBox.dialogBoxGame(playerPosition, boardSize, player);
-            int choice = new InputScanner().intInputScanner();
+            int choice = inputScanner.intInputScanner();
             if (choice == 1) {
 
                 if (playerPosition < boardSize) {
 
                     try {
-                        playerPosition = move.MovePlayer(playerPosition, boardSize);
+                        playerPosition = move.movePlayer();
                     } catch (PlayerOutOfBoardException e) {
                         System.out.println("votre position est de " + playerPosition + " " + e.getMessage());
                     } finally {
-                        playerPosition = move.MoveException(playerPosition, boardSize);
+                        playerPosition = move.moveException();
                     }
                     new CheckPosition(playerPosition, boardSize, player, plateaux);
                 }

@@ -30,9 +30,14 @@ public abstract class Personnage {
 
 
     public void setForce(int force) {
+        if(force <0) force = 0;
         this.force = force;
     }
+//    public abstract boolean receivePotion(Potion potion);
 
+    public boolean isAlive(){
+        return life > 0;
+    }
     public void setLife(int life) {
         this.life = life;
     }

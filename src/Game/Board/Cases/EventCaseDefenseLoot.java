@@ -13,7 +13,7 @@ public class EventCaseDefenseLoot {
     EquipmentDefensive loot;
     EquipmentDefensive oldLoot;
 
-    public EquipmentDefensive generateDefenseLoot() {
+    public CreateCases generateDefenseLoot() {
         int lootChoice = 1 + (int) (Math.random() * ((10 - 1) + 1));
 
         loot = switch (lootChoice) {
@@ -29,7 +29,7 @@ public class EventCaseDefenseLoot {
             case 10 -> new QualityPotion();
             default -> new BasicPotion();
         };
-        return loot;
+        return (CreateCases) loot;
     }
 
     public void equipDefenseLoot(Personnage player) {
