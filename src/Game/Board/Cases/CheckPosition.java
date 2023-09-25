@@ -6,6 +6,7 @@ import Personnage.Personnage;
 import java.util.ArrayList;
 
 public class CheckPosition {
+
     public CheckPosition(int playerPosition, int boardSize, Personnage player, ArrayList<Object> plateaux) {
         if (playerPosition == boardSize) {
             new WinGame(playerPosition);

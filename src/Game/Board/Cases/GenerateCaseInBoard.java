@@ -3,12 +3,17 @@ package Game.Board.Cases;
 import Game.InputScanner;
 import Game.Board.Play.Game;
 import Personnage.Personnage;
+import equipement.Attack.EquipmentOffensive;
+import equipement.Defense.EquipmentDefensive;
 
 import java.util.ArrayList;
 
-public class GenerateCaseInBoard {
+public class GenerateCaseInBoard implements Cases {
     ArrayList<Object> plateaux = new ArrayList<>();
     int boardSize;
+    EventCaseEnemy monster = new EventCaseEnemy();
+    EventCaseAttackLoot attLoot = new EventCaseAttackLoot();
+    EventCaseDefenseLoot defLoot = new EventCaseDefenseLoot();
 
     public GenerateCaseInBoard(Personnage current) {
         System.out.println("choisissez le nombre de cases");
@@ -34,16 +39,16 @@ public class GenerateCaseInBoard {
         int ramdomEvent = 1 + (int) (Math.random() * ((5 - 1) + 1));
 
         if (ramdomEvent == 1) {
-            EventCaseEnemy monster = new EventCaseEnemy();
-            plateaux.set(i, monster.generateMonster());
+
+            plateaux.set(i, generateMonster());
         }
         if (ramdomEvent == 2) {
-            EventCaseAttackLoot attLoot = new EventCaseAttackLoot();
-            plateaux.set(i, attLoot.generateAttackLoot());
+
+            plateaux.set(i, generateAttackLoot());
         }
         if (ramdomEvent == 3) {
-            EventCaseDefenseLoot defLoot = new EventCaseDefenseLoot();
-            plateaux.set(i, defLoot.generateDefenseLoot());
+
+            plateaux.set(i, generateDefenseLoot());
         }
         if (ramdomEvent == 4) {
             plateaux.set(i, new EventCaseHealth());
@@ -52,4 +57,21 @@ public class GenerateCaseInBoard {
             plateaux.set(i, new EventCaseNothing());
         }
     }
+
+    @Override
+    public Personnage generateMonster() {
+
+        return monster.generateMonster();
+    }
+
+    @Override
+    public EquipmentOffensive generateAttackLoot() {
+        return attLoot.generateAttackLoot();
+    }
+
+    @Override
+    public EquipmentDefensive generateDefenseLoot() {
+        return defLoot.generateDefenseLoot();
+    }
 }
+
