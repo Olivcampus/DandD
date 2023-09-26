@@ -13,7 +13,7 @@ public class EventCaseDefenseLoot {
     EquipmentDefensive loot;
     EquipmentDefensive oldLoot;
 
-    public CreateCases generateDefenseLoot() {
+    public EquipmentDefensive generateDefenseLoot () {
         int lootChoice = 1 + (int) (Math.random() * ((10 - 1) + 1));
 
         loot = switch (lootChoice) {
@@ -29,10 +29,10 @@ public class EventCaseDefenseLoot {
             case 10 -> new QualityPotion();
             default -> new BasicPotion();
         };
-        return (CreateCases) loot;
+        return  loot;
     }
 
-    public void equipDefenseLoot(Personnage player) {
+    public void equipDefenseLoot (Personnage player) {
         oldLoot = player.getRightArm();
         if (Objects.equals(loot.getArmorType(), player.type)) {
             if (Objects.equals(oldLoot.getArmorName(), loot.getArmorName())) {

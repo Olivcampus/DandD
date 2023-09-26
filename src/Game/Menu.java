@@ -93,19 +93,23 @@ public class Menu {
         System.out.println(current);
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
-        System.out.println("appuyer sur 2 pour retourner au menu Principal ");
+        System.out.println("appuyer sur 2 pour supprimer et retourner au menu principal");
         int choice = new InputScanner().intInputScanner();
         switch (choice) {
             case 1:
                 createGame(current);
                 break;
             case 2:
+                warriors.remove(current);
                 showMainMenu();
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + choice);
         }
     }
 
     public void createGame(Personnage current) {
         new GenerateCaseInBoard(current);
+
     }
 }

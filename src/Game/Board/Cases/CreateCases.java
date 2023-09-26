@@ -1,6 +1,9 @@
 package Game.Board.Cases;
 
 public interface CreateCases {
-    CreateCases generateMonster();
-    CreateCases generateAttackLoot();
-    CreateCases generateDefenseLoot();}
+    void generateMonster();
+    void generateAttackLoot();
+    void generateDefenseLoot();
+    void eventCaseHealth();
+    void nothingToString();
+}

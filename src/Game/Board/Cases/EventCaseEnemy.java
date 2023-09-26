@@ -9,7 +9,7 @@ import Game.InputScanner;
 
 public class EventCaseEnemy {
     Personnage enemy;
-    public CreateCases generateMonster()  {
+    public Personnage generateMonster()  {
         int monsterChoice = 1 + (int) (Math.random() * ((7 - 1) + 1));
         switch (monsterChoice) {
             case 1:
@@ -34,7 +34,7 @@ public class EventCaseEnemy {
                 enemy = new WhiteRabbit();
                 break;
         }
-        return (CreateCases) enemy;
+        return  enemy;
     }
 
     public void fightMonster(int playerPosition, Personnage player) {

@@ -6,4 +6,7 @@ public class Potion extends EquipmentDefensive {
     public Potion(String armorName, int powerArmor) {
         super("Wizard", armorName, powerArmor);
     }
+
+
+
 }

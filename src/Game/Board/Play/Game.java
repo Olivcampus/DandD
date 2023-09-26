@@ -2,17 +2,16 @@ package Game.Board.Play;
 
 import Game.InputScanner;
 
-import java.util.ArrayList;
-
-import Game.Board.Cases.*;
 import Game.Board.DialogBox;
 import Game.Menu;
 import Game.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
+import Game.Board.Cases.GenerateCaseInBoard;
 
 public class Game {
     Menu Pause = new Menu();
     DialogBox dialogBox = new DialogBox();
+
     private final InputScanner inputScanner = new InputScanner();
 
     /**
@@ -22,7 +21,8 @@ public class Game {
      * @menu pour modifier le personnage
      */
 
-    public void playTurn(int playerPosition, int boardSize, Personnage player, ArrayList<CreateCases> plateaux) {
+    public void playTurn(int playerPosition, int boardSize, Personnage player) {
+        GenerateCaseInBoard event = new GenerateCaseInBoard( player);
         Move move = new Move(boardSize, playerPosition);
         while (playerPosition <= boardSize) {
             if (playerPosition == 1) System.out.println("La partie démarre");
@@ -39,16 +39,20 @@ public class Game {
                     } finally {
                         playerPosition = move.moveException();
                     }
-                    new CheckPosition(playerPosition, boardSize, player, plateaux);
+                    event.setEventAtBoard(playerPosition, player);
+
                 }
+            } else if (playerPosition == boardSize) {
+                new WinGame(playerPosition);
             }
-            if (choice == 2) {
-                Pause.StartNewGame();
-            }
-            if (choice == 3) {
-                System.out.println("retour au menu");
-                Pause.showMainMenu();
+
+                if (choice == 2) {
+                    Pause.StartNewGame();
+                }
+                if (choice == 3) {
+                    System.out.println("retour au menu");
+                    Pause.showMainMenu();
+                }
             }
         }
     }
-}

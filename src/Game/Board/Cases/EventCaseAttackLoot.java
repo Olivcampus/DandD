@@ -12,7 +12,7 @@ public class EventCaseAttackLoot {
     EquipmentOffensive loot;
     EquipmentOffensive oldLoot;
 
-    public CreateCases generateAttackLoot() {
+    public EquipmentOffensive generateAttackLoot() {
         int lootChoice = 1 + (int) (Math.random() * ((10 - 1) + 1));
         loot = switch (lootChoice) {
             case 1 -> new IronSword();
@@ -27,7 +27,7 @@ public class EventCaseAttackLoot {
             case 10 -> new EarthQuake();
             default -> new MagicArrow();
         };
-        return (CreateCases) loot;
+        return loot;
     }
 
     public void equipAttackLoot(Personnage player) {
@@ -59,4 +59,3 @@ public class EventCaseAttackLoot {
         }
     }
 }
-
