@@ -2,6 +2,7 @@ package Game;
 
 import Game.Board.Cases.GenerateCaseInBoard;
 import Game.Board.DialogBox;
+import Game.Board.Play.Game;
 import Personnage.Personnage;
 import Personnage.heros.*;
 
@@ -9,13 +10,13 @@ import Personnage.heros.HerosPreset.*;
 
 import java.util.ArrayList;
 
-
 public class Menu {
-
     ArrayList<Warrior> warriors = new ArrayList<>();
     ArrayList<Wizard> wizards = new ArrayList<>();
     Warrior warrior = new Warrior();
     DialogBox dialogBox = new DialogBox();
+    ArrayList<Integer> plateaux = new ArrayList<>();
+
 
     /**
      * Menu Principal du jeu
@@ -109,7 +110,12 @@ public class Menu {
     }
 
     public void createGame(Personnage current) {
-        new GenerateCaseInBoard(current);
+        plateaux = new GenerateCaseInBoard().GenerateCaseInBoard();
+        int boardSize =  plateaux.size();
+        System.out.println("Le plateau de " + boardSize + " cases a été généré.");
+        int playerPosition = 1;
+        Game start = new Game();
+        start.playTurn(playerPosition, boardSize, current );
 
     }
 }

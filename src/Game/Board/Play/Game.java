@@ -22,7 +22,7 @@ public class Game {
      */
 
     public void playTurn(int playerPosition, int boardSize, Personnage player) {
-        GenerateCaseInBoard event = new GenerateCaseInBoard( player);
+        GenerateCaseInBoard event = new GenerateCaseInBoard( );
         Move move = new Move(boardSize, playerPosition);
         while (playerPosition <= boardSize) {
             if (playerPosition == 1) System.out.println("La partie démarre");
