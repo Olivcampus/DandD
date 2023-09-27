@@ -8,5 +8,4 @@ public class Potion extends EquipmentDefensive {
     }
 
 
-
 }

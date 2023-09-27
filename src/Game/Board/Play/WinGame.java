@@ -1,7 +1,7 @@
 package Game.Board.Play;
 
-import Game.InputScanner;
-import Game.Menu;
+import Game.Menu.InputScanner;
+import Game.Menu.ShowMainMenu;
 
 public class WinGame {
 
@@ -12,8 +12,7 @@ public class WinGame {
         System.out.println("2 pour quitter");
         int choices = new InputScanner().intInputScanner();
         if (choices == 1) {
-            Menu Start = new Menu();
-            Start.showMainMenu();
+            new ShowMainMenu();
         }
         if (choices == 2) {
             System.out.println("à bientôt ");

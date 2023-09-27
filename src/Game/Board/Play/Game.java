@@ -1,17 +1,15 @@
 package Game.Board.Play;
 
-import Game.InputScanner;
+import Game.Menu.InputScanner;
 
-import Game.Board.DialogBox;
-import Game.Menu;
+import Game.Menu.DialogBox;
+import Game.Menu.*;
 import Game.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
 import Game.Board.Cases.GenerateCaseInBoard;
 
 public class Game {
-    Menu Pause = new Menu();
     DialogBox dialogBox = new DialogBox();
-
     private final InputScanner inputScanner = new InputScanner();
 
     /**
@@ -22,16 +20,15 @@ public class Game {
      */
 
     public void playTurn(int playerPosition, int boardSize, Personnage player) {
-        GenerateCaseInBoard event = new GenerateCaseInBoard( );
+        GenerateCaseInBoard event = new GenerateCaseInBoard();
         Move move = new Move(boardSize, playerPosition);
-        while (playerPosition <= boardSize) {
-            if (playerPosition == 1) System.out.println("La partie démarre");
+        while (player.isAlive()) {
+
             dialogBox.dialogBoxGame(playerPosition, boardSize, player);
             int choice = inputScanner.intInputScanner();
             if (choice == 1) {
-
                 if (playerPosition < boardSize) {
-
+                    event.setEventAtBoard(playerPosition, player);
                     try {
                         playerPosition = move.movePlayer();
                     } catch (PlayerOutOfBoardException e) {
@@ -39,20 +36,20 @@ public class Game {
                     } finally {
                         playerPosition = move.moveException();
                     }
-                    event.setEventAtBoard(playerPosition, player);
-
+                } else {
+                    new WinGame(playerPosition);
                 }
-            } else if (playerPosition == boardSize) {
-                new WinGame(playerPosition);
             }
-
-                if (choice == 2) {
-                    Pause.StartNewGame();
-                }
-                if (choice == 3) {
-                    System.out.println("retour au menu");
-                    Pause.showMainMenu();
-                }
+            if (choice == 2) {
+                new CreateCustomHero();
+            }
+            if (choice == 3) {
+                System.out.println("retour au menu");
+                new ShowMainMenu();
             }
         }
+        while (!player.isAlive()) {
+            new YouAreDead();
+        }
     }
+}

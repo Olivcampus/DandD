@@ -1,4 +1,4 @@
-package Game;
+package Game.Menu;
 
 import java.util.Scanner;
 
