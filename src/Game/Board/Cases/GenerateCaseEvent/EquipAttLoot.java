@@ -39,5 +39,3 @@ public class EquipAttLoot extends Personnage {
         }
     }
 }
-
-

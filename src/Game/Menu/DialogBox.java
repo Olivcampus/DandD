@@ -17,7 +17,6 @@ public class DialogBox {
         System.out.println("votre santé actuelle : " + player.getLife() + " PV, votre force actuelle : " + player.getForce() + " points et votre armure actuelle : " + player.getRightArm().getPowerArmor() + " de résistance");
         System.out.println("quel est votre choix");
         System.out.println("taper 1 pour jeter le dé");
-        System.out.println("2 pour modifier votre personnage");
-        System.out.println("3 pour quitter");
+        System.out.println("2 pour quitter");
     }
 }

@@ -34,6 +34,4 @@ public class EventCaseEnemy {
         }
         return enemy;
     }
-
-
 }

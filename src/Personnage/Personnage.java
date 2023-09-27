@@ -75,7 +75,6 @@ public abstract class Personnage {
         this.rightArm = rightArm;
     }
 
-
     @Override
     public String toString() {
         return "votre nom : " + name + " |vie :" + life + " |force : " + force + " |votre classe : " + type + " |votre équipement : " + leftArm + " et aussi une " + rightArm;

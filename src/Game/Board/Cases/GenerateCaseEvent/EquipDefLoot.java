@@ -35,6 +35,5 @@ public class EquipDefLoot {
         } else {
             System.out.println("l'équipement n'est pas compatible avec la classe");
         }
-
     }
 }

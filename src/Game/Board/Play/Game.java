@@ -23,7 +23,6 @@ public class Game {
         GenerateCaseInBoard event = new GenerateCaseInBoard();
         Move move = new Move(boardSize, playerPosition);
         while (player.isAlive()) {
-
             dialogBox.dialogBoxGame(playerPosition, boardSize, player);
             int choice = inputScanner.intInputScanner();
             if (choice == 1) {
@@ -41,9 +40,6 @@ public class Game {
                 }
             }
             if (choice == 2) {
-                new CreateCustomHero();
-            }
-            if (choice == 3) {
                 System.out.println("retour au menu");
                 new ShowMainMenu();
             }

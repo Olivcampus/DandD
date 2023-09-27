@@ -10,7 +10,6 @@ public class CreateCustomHero {
 
     ArrayList<Wizard> wizards = new ArrayList<>();
 
-
     public CreateCustomHero() {
 
         System.out.println("Choisissez un nom :");
@@ -33,6 +32,5 @@ public class CreateCustomHero {
             System.out.println("Nom ou/et type non renseigné, veuillez recommencer");
             new CreateCustomHero();
         }
-
     }
 }

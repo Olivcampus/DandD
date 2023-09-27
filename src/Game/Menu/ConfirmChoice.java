@@ -6,9 +6,7 @@ import Personnage.heros.Wizard;
 
 public class ConfirmChoice {
 
-    public ConfirmChoice(Warrior warrior) {
-        confirmChoice(warrior);
-    }
+    public ConfirmChoice(Warrior warrior) {confirmChoice(warrior);}
 
     public ConfirmChoice(Wizard wizard) {
         confirmChoice(wizard);
@@ -21,14 +19,13 @@ public class ConfirmChoice {
         System.out.println(current);
         System.out.println("êtes vous sur de votre choix ?");
         System.out.println("appuyer sur 1 pour oui");
-        System.out.println("appuyer sur 2 pour supprimer et retourner au menu principal");
+        System.out.println("appuyer sur 2 pour retourner au menu principal");
         int choice = new InputScanner().intInputScanner();
         switch (choice) {
             case 1:
                 new CreateGame(current);
                 break;
             case 2:
-
                 new ShowMainMenu();
                 break;
             default:
