@@ -26,23 +26,23 @@ public class GenerateEventInCase implements NewEvent, Event {
             case "EO" -> {
                 generateAttackLoot();
                 equipAttackLoot(player, attLoot.generateAttackLoot());
-                plateaux.set(player.getPlayerPosition(), "NO");
+                plateaux.set(player.getPlayerPosition(), "o|-<");
             }
             case "ED" -> {
                 generateDefenseLoot();
                 equipDefenseLoot(player, defLoot.generateDefenseLoot());
-                plateaux.set(player.getPlayerPosition(), "NO");
+                plateaux.set(player.getPlayerPosition(), "o|-<");
             }
             case "H" -> {
                 String string = msgHealth.toString();
                 System.out.println(string);
                 healthPlayer(player);
-                plateaux.set(player.getPlayerPosition(), "NO");
+                plateaux.set(player.getPlayerPosition(), "o|-<");
             }
             case "NO", "o|-<" -> {
                 String string1 = msgNothing.toString();
                 System.out.println(string1);
-                plateaux.set(player.getPlayerPosition(), "NO");
+                plateaux.set(player.getPlayerPosition(), "o|-<");
             }
         }
     }
