@@ -4,7 +4,6 @@ import Personnage.Personnage;
 
 public class GenerateEventHealthPlayer {
     /**
-     *
      * S'occupe de rajouter des PV aux joueurs
      */
     public void healthPlayer(Personnage player) {

@@ -1,18 +1,20 @@
 package Play;
 
-import Menu.Menu.InputScanner;
-
+import Event.GenerateEventInCase;
 import Menu.Menu.DialogBox;
-import Menu.Menu.*;
+import Menu.Menu.InputScanner;
+import Menu.Menu.ShowMainMenu;
+import Menu.Menu.YouAreDead;
 import Menu.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
-import Event.GenerateEventInCase;
 
 import java.util.ArrayList;
 
 public class Game {
     DialogBox dialogBox = new DialogBox();
     private final InputScanner inputScanner = new InputScanner();
+    GenerateEventInCase event = new GenerateEventInCase();
+    Move move = new Move();
 
     /**
      * S'occupe du bon déroulement du jeu
@@ -22,30 +24,34 @@ public class Game {
      */
 
     public void playTurn(Personnage player, ArrayList<String> plateaux) {
-        GenerateEventInCase event = new GenerateEventInCase();
-        Move move = new Move();
+
         while (player.isAlive()) {
             dialogBox.dialogBoxGame(player);
             int choice = inputScanner.intInputScanner();
-            if (choice == 1) {
-                if (player.getPlayerPosition() < plateaux.size()) {
-                    try {
-                        player.setPlayerPosition(move.movePlayer(plateaux, player));
-                    } catch (PlayerOutOfBoardException e) {
-                        System.out.println("votre position est de " + player.getPlayerPosition() + " " + e.getMessage());
-                    } finally {
-                        player.setPlayerPosition(move.moveException(plateaux, player));
+            switch (choice) {
+                case 1:
+                    if (player.getPlayerPosition() < plateaux.size()) {
+                        try {
+                            player.setPlayerPosition(move.movePlayer(plateaux, player));
+                        } catch (PlayerOutOfBoardException e) {
+                            System.out.println("votre position est de " + player.getPlayerPosition() + " " + e.getMessage());
+                        } finally {
+                            player.setPlayerPosition(move.moveException(plateaux, player));
+                        }
+                        event.setEventAtBoard(player, plateaux);
+                        System.out.println(plateaux);
+                        break;
                     }
-                    event.setEventAtBoard(player, plateaux);
-                    System.out.println(plateaux);
-                }
+                case 2:
+                    System.out.println("retour au menu");
+                    new ShowMainMenu();
+                    break;
+                default:
+                    System.out.println("veuillez faire un choix valide");
+                    playTurn(player, plateaux);
+                    break;
             }
-            if (choice == 2) {
-                System.out.println("retour au menu");
-                new ShowMainMenu();
-            }
-        }
-        while (!player.isAlive()) {
+        } while (!player.isAlive())  {
             new YouAreDead();
         }
     }

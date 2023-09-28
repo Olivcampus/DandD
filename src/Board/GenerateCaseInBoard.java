@@ -1,35 +1,36 @@
 package Board;
 
-public class GenerateCaseInBoard implements Case{
+public class GenerateCaseInBoard implements Case {
     String cases = "";
 
     /**
      * Génère les cases dans le tableau
      */
-    public String generateCaseInBoard(){
+    public String generateCaseInBoard() {
         int ramdom = 1 + (int) (Math.random() * ((5 - 1) + 1));
 
-          switch (ramdom) {
+        switch (ramdom) {
             case 1:
-                cases =caseEquipmentOffensive();
+                cases = caseEquipmentOffensive();
                 break;
             case 2:
-                cases =caseEquipmentDefensive();
+                cases = caseEquipmentDefensive();
                 break;
             case 3:
-                cases =caseHealth();
+                cases = caseHealth();
                 break;
             case 4:
-                cases =caseNothing();
+                cases = caseNothing();
                 break;
             case 5:
-                cases =caseMonster();
+                cases = caseMonster();
                 break;
         }
         return cases;
 
     }
-       @Override
+
+    @Override
     public String caseEquipmentDefensive() {
         return cases = "ED";
     }
@@ -51,6 +52,6 @@ public class GenerateCaseInBoard implements Case{
 
     @Override
     public String caseMonster() {
-        return cases= "M";
+        return cases = "M";
     }
 }

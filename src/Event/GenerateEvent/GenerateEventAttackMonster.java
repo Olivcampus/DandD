@@ -1,12 +1,10 @@
 package Event.GenerateEvent;
 
-import Menu.Menu.InputScanner;
-import Menu.Menu.YouAreDead;
 import Personnage.Personnage;
+import Menu.Menu.*;
 
 public class GenerateEventAttackMonster {
     /**
-     *
      * S'occupe de la partie Combat
      */
 
@@ -17,32 +15,37 @@ public class GenerateEventAttackMonster {
         if ((player.isAlive()) && enemy.isAlive()) {
             System.out.println("voulez vous 1 : vous battre  2: fuir ?");
             int choice = new InputScanner().intInputScanner();
-            if (choice == 1) {
-                enemy.setForce(enemy.getForce() - player.getRightArm().getPowerArmor());
-                int ramdomEvent = 1 + (int) (Math.random() * ((6 - 1) + 1));
-                if (ramdomEvent <= 2) {
-                    System.out.println("l'ennemie à fui ");
-                    return;
-                } else {
+            switch (choice) {
+                case 1:
+                    enemy.setForce(enemy.getForce() - player.getRightArm().getPowerArmor());
+                    if (enemy.getForce() < player.getForce()) {
+                        int ramdomEvent = 1 + (int) (Math.random() * ((6 - 1) + 1));
+                        if (ramdomEvent <= 2) {
+                            System.out.println("l'ennemie à fui ");
+                            return;
+                        }
+                    }
                     enemy.setLife(enemy.getLife() - player.getForce());
-                    System.out.println("il vous reste " + player.getLife() + " PV et à votre ennemie " + enemy.getLife() + " PV");
-                }
-                if (enemy.isAlive()) {
-                    player.setLife(player.getLife() - enemy.getForce());
-                }
+                    System.out.println("il lui reste " + enemy.getLife() + " PV ");
+
+                    if (enemy.isAlive()) {
+                        player.setLife(player.getLife() - enemy.getForce());
+                        System.out.println("il vous reste " + player.getLife() + " PV");
+                    }
+                    break;
+                case 2:
+                    int ramdomPosition = 1 + (int) (Math.random() * ((6 - 1) + 1));
+                    player.setPlayerPosition(player.getPlayerPosition() - ramdomPosition);
+                    if (player.getPlayerPosition() <= 0) {
+                        player.setPlayerPosition(1);
+                    }
+                    System.out.println("vous fuyez à la position : " + player.getPlayerPosition());
+                    break;
+                default:
+                    System.out.println("veuillez faire un choix valide");
+                    fightMonster(player, enemy);
             }
-            if (choice == 2) {
-                int ramdomPosition = 1 + (int) (Math.random() * ((6 - 1) + 1));
-                player.setPlayerPosition(player.getPlayerPosition() - ramdomPosition);
-                if (player.getPlayerPosition() <= 0) {
-                    player.setPlayerPosition(1);
-                }
-                System.out.println("vous fuyez à la position : " + player.getPlayerPosition());
-            }
-        }
-        if (!player.isAlive()) {
-            new YouAreDead();
-        } else if (!enemy.isAlive()) {
+        } if (!enemy.isAlive()) {
             System.out.println("vous avez vaincu " + enemy.getName());
         }
     }

@@ -89,9 +89,8 @@ public abstract class Personnage {
     }
 
 
-
     @Override
     public String toString() {
-        return "votre nom : " + name + " |vie :" + life + " |force : " + force + " |votre classe : " + type + " |votre équipement : " + leftArm + " et aussi une " + rightArm;
+        return "votre nom est " + name + " , votre vie est de :" + life + " Pv, d'une force de : " + force + " ,votre classe est : " + type + " " + leftArm + " et aussi " + rightArm;
     }
 }

@@ -1,8 +1,8 @@
 package Personnage.heros;
 
 import Equipement.Attack.Weapon.WoodSword;
-import Personnage.Personnage;
 import Equipement.Defense.Shield.WoodShield;
+import Personnage.Personnage;
 
 public class Warrior extends Personnage {
     /**

@@ -6,8 +6,8 @@ import Personnage.monsters.*;
 
 public class CreateEventEnemy {
     Personnage enemy;
+
     /**
-     *
      * Créer les monstres lors de la création du plateau
      */
     public Personnage generateMonster() {

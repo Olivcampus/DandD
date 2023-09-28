@@ -1,10 +1,10 @@
 package Event;
 
+import Equipement.Attack.EquipmentOffensive;
+import Equipement.Defense.EquipmentDefensive;
 import Event.CreateEvent.*;
 import Event.GenerateEvent.*;
 import Personnage.Personnage;
-import Equipement.Attack.EquipmentOffensive;
-import Equipement.Defense.EquipmentDefensive;
 import Play.WinGame;
 
 import java.util.ArrayList;
@@ -18,9 +18,7 @@ public class GenerateEventInCase implements NewEvent, Event {
     CreateNoEvent msgNothing = new CreateNoEvent();
 
     /**
-     *
      * Sert à déterminer l'événement lié à la position du joueur sur le plateau
-     *
      */
 
     public void setEventAtBoard(Personnage player, ArrayList<String> plateaux) {
@@ -54,8 +52,8 @@ public class GenerateEventInCase implements NewEvent, Event {
                     plateaux.set(player.getPlayerPosition(), "o|-<");
                 }
             }
-        }else{
-           new WinGame();
+        } else {
+            new WinGame();
         }
     }
 

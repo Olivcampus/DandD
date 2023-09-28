@@ -5,10 +5,9 @@ import Menu.Menu.ShowMainMenu;
 
 public class WinGame {
     /**
-     *
      * Fonction qui se déclenche quand le joueur a gagné
      */
-    public WinGame( ) {
+    public WinGame() {
         System.out.println("Bravo vous avez gagné");
         System.out.println("taper 1 pour recommencer");
         System.out.println("2 pour quitter");

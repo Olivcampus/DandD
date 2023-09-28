@@ -1,15 +1,15 @@
 package Menu.Menu;
 
 import Personnage.Personnage;
-import Personnage.heros.Warrior;
-import Personnage.heros.Wizard;
+import Personnage.heros.*;
 
 public class ConfirmChoice {
     /**
-     *
      * menu de confirmation servant au recap du hero créer par le joueur avant de lancer le jeu
      */
-    public ConfirmChoice(Warrior warrior) {confirmChoice(warrior);}
+    public ConfirmChoice(Warrior warrior) {
+        confirmChoice(warrior);
+    }
 
     public ConfirmChoice(Wizard wizard) {
         confirmChoice(wizard);

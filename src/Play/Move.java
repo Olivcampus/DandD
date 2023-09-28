@@ -10,7 +10,6 @@ public class Move {
 
     /**
      * Cette classe s'occupe des déplacements du joueur
-     *
      */
 
 

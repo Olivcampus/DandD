@@ -9,7 +9,6 @@ public class CreateEventAttackLoot {
     EquipmentOffensive loot;
 
     /**
-     *
      * Créer les armes lors de la création du plateau
      */
 

@@ -9,7 +9,7 @@ public class CreateEventDefenseLoot {
 
     /**
      * Créer les protections lors de la création du plateau
-     * */
+     */
     public EquipmentDefensive generateDefenseLoot() {
         int lootChoice = 1 + (int) (Math.random() * ((10 - 1) + 1));
 

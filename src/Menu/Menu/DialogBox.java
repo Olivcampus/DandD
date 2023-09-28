@@ -16,7 +16,7 @@ public class DialogBox {
         System.out.println("veuillez saisir votre choix");
     }
 
-    public void dialogBoxGame (Personnage player ) {
+    public void dialogBoxGame(Personnage player) {
 
         System.out.println("votre santé actuelle : " + player.getLife() + " PV, votre force actuelle : " + player.getForce() + " points et votre armure actuelle : " + player.getRightArm().getPowerArmor() + " de résistance");
         System.out.println("quel est votre choix");

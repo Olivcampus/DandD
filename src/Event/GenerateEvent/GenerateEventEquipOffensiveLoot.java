@@ -1,17 +1,17 @@
 package Event.GenerateEvent;
 
+import Equipement.Attack.EquipmentOffensive;
 import Menu.Menu.InputScanner;
 import Personnage.Personnage;
-import Equipement.Attack.EquipmentOffensive;
 
 import java.util.Objects;
 
 public class GenerateEventEquipOffensiveLoot extends Personnage {
 
     EquipmentOffensive oldLoot;
+
     /**
-     *
-     *S'occupe de la partie loot pour les équipements Offensifs
+     * S'occupe de la partie loot pour les équipements Offensifs
      */
 
     public void equipAttackLoot(Personnage player, EquipmentOffensive loot) {

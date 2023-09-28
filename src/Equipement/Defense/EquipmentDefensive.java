@@ -7,7 +7,6 @@ public class EquipmentDefensive {
 
     /**
      * Déclare les attributs pour les équipements défensifs
-
      */
     public EquipmentDefensive(String armorType, String armorName, int powerArmor) {
         this.armorType = armorType;
@@ -30,6 +29,6 @@ public class EquipmentDefensive {
 
     @Override
     public String toString() {
-        return " une protection de type : " + armorType + ", du nom de :  " + armorName + " et d'une résistance de  " + powerArmor;
+        return " une protection du nom de :  " + armorName + " et d'une résistance de  " + powerArmor;
     }
 }

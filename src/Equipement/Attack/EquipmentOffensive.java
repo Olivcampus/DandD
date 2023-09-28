@@ -28,6 +28,6 @@ public class EquipmentOffensive {
 
     @Override
     public String toString() {
-        return " une arme de type :" + WeaponType + ", du nom de :  " + WeaponName + " et d'une puissance de : " + powerWeapon;
+        return " une arme du nom de :  " + WeaponName + " et d'une puissance de : " + powerWeapon;
     }
 }

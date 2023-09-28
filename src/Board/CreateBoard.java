@@ -16,12 +16,12 @@ public class CreateBoard {
         System.out.println("choisissez le nombre de cases");
         int choice = new InputScanner().intInputScanner();
         if (choice >= 20 && choice <= 100) {
-            for (int i = 0; i <choice; i++) {
+            for (int i = 0; i < choice; i++) {
                 if (i == 1) {
                     plateaux.add("Start");
-                } else if (i == (choice-1)) {
+                } else if (i == (choice - 1)) {
                     plateaux.add("Win");
-                }else if (i == 0){
+                } else if (i == 0) {
                     plateaux.add("Game");
                 } else {
                     plateaux.add(generateCase.generateCaseInBoard());

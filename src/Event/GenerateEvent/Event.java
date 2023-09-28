@@ -1,8 +1,8 @@
 package Event.GenerateEvent;
 
-import Personnage.Personnage;
 import Equipement.Attack.EquipmentOffensive;
 import Equipement.Defense.EquipmentDefensive;
+import Personnage.Personnage;
 
 public interface Event {
     void equipAttackLoot(Personnage player, EquipmentOffensive loot);
