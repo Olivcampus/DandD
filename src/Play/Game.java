@@ -21,14 +21,14 @@ public class Game {
      * @menu pour modifier le personnage
      */
 
-    public void playTurn(int boardSize, Personnage player, ArrayList<String> plateaux) {
+    public void playTurn(Personnage player, ArrayList<String> plateaux) {
         GenerateEventInCase event = new GenerateEventInCase();
-        Move move = new Move(boardSize, player);
+        Move move = new Move(plateaux.size(), player);
         while (player.isAlive()) {
-            dialogBox.dialogBoxGame(player.getPlayerPosition(), boardSize, player, plateaux);
+            dialogBox.dialogBoxGame(player.getPlayerPosition(), plateaux.size(), player, plateaux);
             int choice = inputScanner.intInputScanner();
             if (choice == 1) {
-                if (player.getPlayerPosition()< boardSize) {
+                if (player.getPlayerPosition()< plateaux.size()) {
                     event.setEventAtBoard(player, plateaux);
                     try {
                         player.setPlayerPosition(move.movePlayer(player));

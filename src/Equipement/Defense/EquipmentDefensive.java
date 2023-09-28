@@ -5,6 +5,10 @@ public class EquipmentDefensive {
     private final String armorName;
     private final int powerArmor;
 
+    /**
+     * Déclare les attributs pour les équipements défensifs
+
+     */
     public EquipmentDefensive(String armorType, String armorName, int powerArmor) {
         this.armorType = armorType;
         this.armorName = armorName;

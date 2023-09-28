@@ -5,6 +5,9 @@ public class EquipmentOffensive {
     private final String WeaponName;
     private final int powerWeapon;
 
+    /**
+     * Déclare les attributs pour les équipements offensifs
+     */
     public EquipmentOffensive(String WeaponType, String WeaponName, int powerWeapon) {
         this.WeaponType = WeaponType;
         this.WeaponName = WeaponName;

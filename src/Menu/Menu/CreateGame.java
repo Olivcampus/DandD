@@ -10,12 +10,11 @@ public class CreateGame {
     ArrayList<String> plateaux;
     public  CreateGame(Personnage current) {
         plateaux = new CreateBoard().generateBoard();
-        int boardSize = plateaux.size();
-        System.out.println("Le plateau de " + boardSize + " cases a été généré.");
+        System.out.println("Le plateau de " + plateaux.size() + " cases a été généré.");
         current.setPlayerPosition(1);
         System.out.println("La partie démarre");
         Game start = new Game();
-        start.playTurn(boardSize, current, plateaux);
+        start.playTurn(current, plateaux);
 
     }
 }

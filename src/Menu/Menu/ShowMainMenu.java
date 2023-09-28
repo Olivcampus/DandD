@@ -2,6 +2,10 @@ package Menu.Menu;
 
 public class ShowMainMenu {
     DialogBox dialogBox = new DialogBox();
+
+    /**
+     * Menu Principal du jeu
+     */
     public ShowMainMenu() {
         dialogBox.dialogMainMenu();
         int choice = new InputScanner().intInputScanner();
