@@ -1,7 +1,7 @@
 package Personnage.heros;
 
-import equipement.Attack.spell.MagicArrow;
-import equipement.Defense.potion.BasicPotion;
+import Equipement.Attack.Spell.MagicArrow;
+import Equipement.Defense.Potion.BasicPotion;
 import Personnage.Personnage;
 
 public class Wizard extends Personnage {
