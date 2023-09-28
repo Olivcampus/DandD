@@ -9,7 +9,7 @@ public interface Event {
 
     void equipDefenseLoot(Personnage player, EquipmentDefensive loot);
 
-    void fightMonster(int playerPosition, Personnage player, Personnage monster);
+    void fightMonster(Personnage player);
 
     void healthPlayer(Personnage player);
 }

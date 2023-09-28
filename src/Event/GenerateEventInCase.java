@@ -16,33 +16,33 @@ public class GenerateEventInCase implements NewEvent, Event {
     CreateEventHealth msgHealth = new CreateEventHealth();
     CreateNoEvent msgNothing = new CreateNoEvent();
 
-    public void setEventAtBoard(int playerPosition, Personnage player, ArrayList<String> plateaux) {
-        switch (plateaux.get(playerPosition)) {
+    public void setEventAtBoard(Personnage player, ArrayList<String> plateaux) {
+        switch (plateaux.get(player.getPlayerPosition())) {
             case "M" -> {
                 generateMonster();
-                fightMonster(playerPosition, player, monster.generateMonster());
-                plateaux.set(playerPosition, "o|-<");
+                fightMonster(player);
+                plateaux.set(player.getPlayerPosition(), "o|-<");
             }
             case "EO" -> {
                 generateAttackLoot();
                 equipAttackLoot(player, attLoot.generateAttackLoot());
-                plateaux.set(playerPosition, "NO");
+                plateaux.set(player.getPlayerPosition(), "NO");
             }
             case "ED" -> {
                 generateDefenseLoot();
                 equipDefenseLoot(player, defLoot.generateDefenseLoot());
-                plateaux.set(playerPosition, "NO");
+                plateaux.set(player.getPlayerPosition(), "NO");
             }
             case "H" -> {
                 String string = msgHealth.toString();
                 System.out.println(string);
                 healthPlayer(player);
-                plateaux.set(playerPosition, "NO");
+                plateaux.set(player.getPlayerPosition(), "NO");
             }
             case "NO", "o|-<" -> {
                 String string1 = msgNothing.toString();
                 System.out.println(string1);
-                plateaux.set(playerPosition, "NO");
+                plateaux.set(player.getPlayerPosition(), "NO");
             }
         }
     }
@@ -76,8 +76,8 @@ public class GenerateEventInCase implements NewEvent, Event {
 
 
     @Override
-    public void fightMonster(int playerPosition, Personnage player, Personnage enemy) {
-        new GenerateEventAttackMonster().fightMonster(playerPosition, player, monster.generateMonster());
+    public void fightMonster(Personnage player) {
+        new GenerateEventAttackMonster().fightMonster(player, monster.generateMonster());
     }
 
     @Override

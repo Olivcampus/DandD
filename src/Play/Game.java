@@ -21,24 +21,24 @@ public class Game {
      * @menu pour modifier le personnage
      */
 
-    public void playTurn(int playerPosition, int boardSize, Personnage player, ArrayList<String> plateaux) {
+    public void playTurn(int boardSize, Personnage player, ArrayList<String> plateaux) {
         GenerateEventInCase event = new GenerateEventInCase();
-        Move move = new Move(boardSize, playerPosition);
+        Move move = new Move(boardSize, player);
         while (player.isAlive()) {
-            dialogBox.dialogBoxGame(playerPosition, boardSize, player, plateaux);
+            dialogBox.dialogBoxGame(player.getPlayerPosition(), boardSize, player, plateaux);
             int choice = inputScanner.intInputScanner();
             if (choice == 1) {
-                if (playerPosition < boardSize) {
-                    event.setEventAtBoard(playerPosition, player, plateaux);
+                if (player.getPlayerPosition()< boardSize) {
+                    event.setEventAtBoard(player, plateaux);
                     try {
-                        playerPosition = move.movePlayer();
+                        player.setPlayerPosition(move.movePlayer(player));
                     } catch (PlayerOutOfBoardException e) {
-                        System.out.println("votre position est de " + playerPosition + " " + e.getMessage());
+                        System.out.println("votre position est de " + player.getPlayerPosition() + " " + e.getMessage());
                     } finally {
-                        playerPosition = move.moveException();
+                        player.setPlayerPosition(move.moveException());
                     }
                 } else {
-                    new WinGame(playerPosition);
+                    new WinGame(player.getPlayerPosition());
                 }
             }
             if (choice == 2) {

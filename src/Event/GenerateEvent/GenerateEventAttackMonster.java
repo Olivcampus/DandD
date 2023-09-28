@@ -6,7 +6,7 @@ import Personnage.Personnage;
 
 public class GenerateEventAttackMonster {
 
-    public void fightMonster(int playerPosition, Personnage player, Personnage enemy) {
+    public void fightMonster(Personnage player, Personnage enemy) {
 
         if ((player.isAlive()) && enemy.isAlive())
             System.out.println("vous allez affronter un " + enemy.getType() + " du nom de : " + enemy.getName() + " d'une force de : " + enemy.getForce() + " points et d'une santé de " + enemy.getLife() + "PV");
@@ -30,9 +30,9 @@ public class GenerateEventAttackMonster {
         if (choice == 2) {
             System.out.println("vous fuyez");
             int ramdomPosition = 1 + (int) (Math.random() * ((6 - 1) + 1));
-            playerPosition -= ramdomPosition;
-            if (playerPosition <= 0) {
-                playerPosition = 1;
+            player.setPlayerPosition(player.getPlayerPosition()- ramdomPosition) ;
+            if (player.getPlayerPosition() <= 0) {
+                player.setPlayerPosition(1);
             }
         }
         if (!player.isAlive()) {

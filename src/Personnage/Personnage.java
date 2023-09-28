@@ -11,6 +11,7 @@ public abstract class Personnage {
     public String type;
     protected EquipmentOffensive leftArm;
     protected EquipmentDefensive rightArm;
+    private int playerPosition;
 
     public Personnage() {
         this("Noname");
@@ -32,6 +33,14 @@ public abstract class Personnage {
     public void setForce(int force) {
         if (force < 0) force = 0;
         this.force = force;
+    }
+
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(int playerPosition) {
+        this.playerPosition = playerPosition;
     }
 //    public abstract boolean receivePotion(Potion potion);
 
@@ -74,6 +83,8 @@ public abstract class Personnage {
     public void setRightArm(EquipmentDefensive rightArm) {
         this.rightArm = rightArm;
     }
+
+
 
     @Override
     public String toString() {
