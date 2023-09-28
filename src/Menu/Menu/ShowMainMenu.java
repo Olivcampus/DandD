@@ -15,6 +15,7 @@ public class ShowMainMenu {
             case 3:
                 System.out.println("merci au revoir !");
                 break;
+            default: new ShowMainMenu();
         }
     }
 }
