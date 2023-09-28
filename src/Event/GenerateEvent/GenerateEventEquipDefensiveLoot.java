@@ -9,6 +9,11 @@ import java.util.Objects;
 public class GenerateEventEquipDefensiveLoot {
     EquipmentDefensive oldLoot;
 
+    /**
+     *
+     *S'occupe de la partie loot pour les équipements Défensifs
+     */
+
     public void equipDefenseLoot(Personnage player, EquipmentDefensive loot) {
         oldLoot = player.getRightArm();
         if (Objects.equals(loot.getArmorType(), player.type)) {

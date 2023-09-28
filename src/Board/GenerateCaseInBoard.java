@@ -4,7 +4,7 @@ public class GenerateCaseInBoard implements Case{
     String cases = "";
 
     /**
-     * génère les cases dans le tableau
+     * Génère les cases dans le tableau
      */
     public String generateCaseInBoard(){
         int ramdom = 1 + (int) (Math.random() * ((5 - 1) + 1));

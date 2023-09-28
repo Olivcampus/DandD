@@ -7,8 +7,7 @@ import Equipement.Defense.Shield.WoodShield;
 public class Warrior extends Personnage {
     /**
      * Création du guerrier
-     *
-     * @Personnage pour hériter des valeurs par défaut
+     * qui hérite de personnage pour les valeurs par défaut
      */
 
     public Warrior(String name) {

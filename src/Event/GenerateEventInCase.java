@@ -16,6 +16,12 @@ public class GenerateEventInCase implements NewEvent, Event {
     CreateEventHealth msgHealth = new CreateEventHealth();
     CreateNoEvent msgNothing = new CreateNoEvent();
 
+    /**
+     *
+     * Sert à déterminer l'événement lié à la position du joueur sur le plateau
+     *
+     */
+
     public void setEventAtBoard(Personnage player, ArrayList<String> plateaux) {
         switch (plateaux.get(player.getPlayerPosition())) {
             case "M" -> {

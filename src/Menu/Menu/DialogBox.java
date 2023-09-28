@@ -5,6 +5,10 @@ import Personnage.Personnage;
 import java.util.ArrayList;
 
 public class DialogBox {
+
+    /**
+     * Sert de boite de dialogue pour les textes long
+     */
     public void dialogMainMenu() {
         System.out.println("Bienvenue dans le donjon de Naheulbeuk!");
         System.out.println("Menu principal");

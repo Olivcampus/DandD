@@ -5,6 +5,10 @@ import Menu.Menu.YouAreDead;
 import Personnage.Personnage;
 
 public class GenerateEventAttackMonster {
+    /**
+     *
+     * S'occupe de la partie Combat
+     */
 
     public void fightMonster(Personnage player, Personnage enemy) {
 

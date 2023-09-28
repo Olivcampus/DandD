@@ -1,6 +1,9 @@
 package Menu.Menu;
 
 public class YouAreDead {
+    /**
+     * Menu se lançant à la mort du joueur
+     */
     public  YouAreDead() {
         int choice = new InputScanner().intInputScanner();
         System.out.println("vous êtes décédé");

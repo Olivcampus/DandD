@@ -9,6 +9,10 @@ import java.util.Objects;
 public class GenerateEventEquipOffensiveLoot extends Personnage {
 
     EquipmentOffensive oldLoot;
+    /**
+     *
+     *S'occupe de la partie loot pour les équipements Offensifs
+     */
 
     public void equipAttackLoot(Personnage player, EquipmentOffensive loot) {
         oldLoot = player.getLeftArm();

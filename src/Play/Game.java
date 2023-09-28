@@ -16,8 +16,7 @@ public class Game {
 
     /**
      * S'occupe du bon déroulement du jeu
-     *
-     * @Board pour le plateau
+     * cette fonction s'occupe du bon déroulement des jeux et appellent les fonctions à mesure du que le jeu avances
      * @menu pour modifier le personnage
      */
 

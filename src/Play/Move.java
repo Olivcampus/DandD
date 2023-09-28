@@ -8,6 +8,9 @@ public class Move {
     private final int boardSize;
     private int playerPosition;
 
+    /**
+     * Cette classe s'occupe des déplacements du joueur
+     */
     public Move(int boardSize, Personnage player) {
         this.boardSize = boardSize;
         this.playerPosition = player.getPlayerPosition();

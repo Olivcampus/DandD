@@ -8,6 +8,11 @@ import Equipement.Attack.Weapon.*;
 public class CreateEventAttackLoot {
     EquipmentOffensive loot;
 
+    /**
+     *
+     * Créer les armes lors de la création du plateau
+     */
+
     public EquipmentOffensive generateAttackLoot() {
         int lootChoice = 1 + (int) (Math.random() * ((10 - 1) + 1));
         loot = switch (lootChoice) {

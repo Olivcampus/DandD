@@ -4,7 +4,10 @@ import Menu.Menu.InputScanner;
 import Menu.Menu.ShowMainMenu;
 
 public class WinGame {
-
+    /**
+     *
+     * Fonction qui se déclenche quand le joueur à gagné
+     */
     public WinGame(int playerPosition) {
         System.out.println("votre playerPosition est " + playerPosition);
         System.out.println("Bravo vous avez gagné");

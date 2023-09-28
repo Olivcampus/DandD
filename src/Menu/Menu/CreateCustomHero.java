@@ -10,6 +10,9 @@ public class CreateCustomHero {
 
     ArrayList<Wizard> wizards = new ArrayList<>();
 
+    /**
+     * Création d'un héros personnalisé
+     */
     public CreateCustomHero() {
 
         System.out.println("Choisissez un nom :");

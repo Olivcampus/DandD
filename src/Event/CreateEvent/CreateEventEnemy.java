@@ -6,7 +6,10 @@ import Personnage.monsters.*;
 
 public class CreateEventEnemy {
     Personnage enemy;
-
+    /**
+     *
+     * Créer les monstres lors de la création du plateau
+     */
     public Personnage generateMonster() {
         int monsterChoice = 1 + (int) (Math.random() * ((7 - 1) + 1));
         switch (monsterChoice) {

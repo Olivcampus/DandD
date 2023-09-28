@@ -13,6 +13,10 @@ public abstract class Personnage {
     protected EquipmentDefensive rightArm;
     private int playerPosition;
 
+    /**
+     * Classe abstraite créant les attributs qui vont servir à la création des héros et des monstres
+     */
+
     public Personnage() {
         this("Noname");
     }
