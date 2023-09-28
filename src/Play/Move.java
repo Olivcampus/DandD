@@ -3,34 +3,35 @@ package Play;
 import Menu.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
 
+import java.util.ArrayList;
+
 public class Move {
     private int de;
-    private final int boardSize;
-    private int playerPosition;
 
     /**
      * Cette classe s'occupe des déplacements du joueur
+     *
      */
-    public Move(int boardSize, Personnage player) {
-        this.boardSize = boardSize;
-        this.playerPosition = player.getPlayerPosition();
-    }
 
-    public int movePlayer(Personnage player) throws PlayerOutOfBoardException {
-        if (playerPosition < boardSize) {
-            de = 1 + (int) (Math.random() * ((6 - 1) + 1));
-            player.setPlayerPosition(playerPosition += de);
-        } else if (playerPosition > boardSize) {
+
+    public int movePlayer(ArrayList<String> plateaux, Personnage player) throws PlayerOutOfBoardException {
+        de = 1 + (int) (Math.random() * ((6 - 1) + 1));
+        System.out.println("la valeur du dé est de : " + de);
+        player.setPlayerPosition(player.getPlayerPosition() + de);
+        System.out.println("votre position est : " + player.getPlayerPosition() + " sur : " + plateaux.size());
+        if (player.getPlayerPosition() > plateaux.size()) {
             throw new PlayerOutOfBoardException();
+        } else {
+
+            return player.getPlayerPosition();
         }
-        return playerPosition;
     }
 
-    public int moveException() {
-        if (playerPosition > boardSize) {
-            playerPosition -= de;
-            System.out.println("retour en position " + playerPosition);
+    public int moveException(ArrayList<String> plateaux, Personnage player) {
+        if (player.getPlayerPosition() > plateaux.size()) {
+            player.setPlayerPosition(player.getPlayerPosition() - de);
+            System.out.println("retour en position " + player.getPlayerPosition());
         }
-        return playerPosition;
+        return player.getPlayerPosition();
     }
 }

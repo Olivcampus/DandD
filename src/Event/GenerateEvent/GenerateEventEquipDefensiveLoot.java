@@ -16,13 +16,13 @@ public class GenerateEventEquipDefensiveLoot {
 
     public void equipDefenseLoot(Personnage player, EquipmentDefensive loot) {
         oldLoot = player.getRightArm();
+        System.out.println("vous avez trouvé un équipement suivant : " + loot);
         if (Objects.equals(loot.getArmorType(), player.type)) {
             if (Objects.equals(oldLoot.getArmorName(), loot.getArmorName())) {
                 System.out.println("vous avez trouvé un équipement identique au votre");
             }
             if (!Objects.equals(oldLoot.getArmorName(), loot.getArmorName())) {
                 if (oldLoot.getPowerArmor() < loot.getPowerArmor()) {
-                    System.out.println("vous avez trouvé un équipement suivant : " + loot);
                     System.out.println("votre équipement actuel : " + player.getRightArm());
                     System.out.println("voulez vous équiper votre personnage avec tapez 1 pour oui, 2 pour non");
                     int lootequip = new InputScanner().intInputScanner();
@@ -38,7 +38,7 @@ public class GenerateEventEquipDefensiveLoot {
                 }
             }
         } else {
-            System.out.println("l'équipement n'est pas compatible avec la classe");
+            System.out.println("l'équipement n'est pas compatible avec votre classe");
         }
     }
 }

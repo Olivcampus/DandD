@@ -2,8 +2,6 @@ package Menu.Menu;
 
 import Personnage.Personnage;
 
-import java.util.ArrayList;
-
 public class DialogBox {
 
     /**
@@ -18,12 +16,11 @@ public class DialogBox {
         System.out.println("veuillez saisir votre choix");
     }
 
-    public void dialogBoxGame(int playerPosition, int boardSize, Personnage player, ArrayList<String> plateaux) {
-        System.out.println("votre position est " + playerPosition + "/" + boardSize);
-        System.out.println(plateaux);
+    public void dialogBoxGame (Personnage player ) {
+
         System.out.println("votre santé actuelle : " + player.getLife() + " PV, votre force actuelle : " + player.getForce() + " points et votre armure actuelle : " + player.getRightArm().getPowerArmor() + " de résistance");
         System.out.println("quel est votre choix");
-        System.out.println("taper 1 pour jeter le dé");
-        System.out.println("2 pour quitter");
+        System.out.println("1 : jeter le dé");
+        System.out.println("2 : pour quitter");
     }
 }

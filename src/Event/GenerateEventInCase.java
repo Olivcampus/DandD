@@ -5,6 +5,7 @@ import Event.GenerateEvent.*;
 import Personnage.Personnage;
 import Equipement.Attack.EquipmentOffensive;
 import Equipement.Defense.EquipmentDefensive;
+import Play.WinGame;
 
 import java.util.ArrayList;
 
@@ -23,33 +24,38 @@ public class GenerateEventInCase implements NewEvent, Event {
      */
 
     public void setEventAtBoard(Personnage player, ArrayList<String> plateaux) {
-        switch (plateaux.get(player.getPlayerPosition())) {
-            case "M" -> {
-                generateMonster();
-                fightMonster(player);
-                plateaux.set(player.getPlayerPosition(), "o|-<");
+        if (player.getPlayerPosition() < plateaux.size()) {
+
+            switch (plateaux.get(player.getPlayerPosition())) {
+                case "M" -> {
+                    generateMonster();
+                    fightMonster(player);
+                    plateaux.set(player.getPlayerPosition(), "o|-<");
+                }
+                case "EO" -> {
+                    generateAttackLoot();
+                    equipAttackLoot(player, attLoot.generateAttackLoot());
+                    plateaux.set(player.getPlayerPosition(), "o|-<");
+                }
+                case "ED" -> {
+                    generateDefenseLoot();
+                    equipDefenseLoot(player, defLoot.generateDefenseLoot());
+                    plateaux.set(player.getPlayerPosition(), "o|-<");
+                }
+                case "H" -> {
+                    String string = msgHealth.toString();
+                    System.out.println(string);
+                    healthPlayer(player);
+                    plateaux.set(player.getPlayerPosition(), "o|-<");
+                }
+                case "NO", "o|-<" -> {
+                    String string1 = msgNothing.toString();
+                    System.out.println(string1);
+                    plateaux.set(player.getPlayerPosition(), "o|-<");
+                }
             }
-            case "EO" -> {
-                generateAttackLoot();
-                equipAttackLoot(player, attLoot.generateAttackLoot());
-                plateaux.set(player.getPlayerPosition(), "o|-<");
-            }
-            case "ED" -> {
-                generateDefenseLoot();
-                equipDefenseLoot(player, defLoot.generateDefenseLoot());
-                plateaux.set(player.getPlayerPosition(), "o|-<");
-            }
-            case "H" -> {
-                String string = msgHealth.toString();
-                System.out.println(string);
-                healthPlayer(player);
-                plateaux.set(player.getPlayerPosition(), "o|-<");
-            }
-            case "NO", "o|-<" -> {
-                String string1 = msgNothing.toString();
-                System.out.println(string1);
-                plateaux.set(player.getPlayerPosition(), "o|-<");
-            }
+        }else{
+           new WinGame();
         }
     }
 

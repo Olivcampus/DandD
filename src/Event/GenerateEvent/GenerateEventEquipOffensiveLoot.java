@@ -16,13 +16,13 @@ public class GenerateEventEquipOffensiveLoot extends Personnage {
 
     public void equipAttackLoot(Personnage player, EquipmentOffensive loot) {
         oldLoot = player.getLeftArm();
+        System.out.println("vous avez trouvé un équipement suivant : " + loot);
         if (Objects.equals(loot.getWeaponType(), player.type)) {
             if (Objects.equals(oldLoot.getWeaponName(), loot.getWeaponName())) {
                 System.out.println("vous avez trouvé un équipement identique au votre");
             }
             if (!Objects.equals(oldLoot.getWeaponName(), loot.getWeaponName())) {
                 if (oldLoot.getPowerWeapon() < loot.getPowerWeapon()) {
-                    System.out.println("vous avez trouvé un équipement suivant : " + loot);
                     System.out.println("votre équipement actuel : " + player.getLeftArm());
                     System.out.println("voulez vous équiper votre personnage avec tapez 1 pour oui, 2 pour non");
                     int lootequip = new InputScanner().intInputScanner();

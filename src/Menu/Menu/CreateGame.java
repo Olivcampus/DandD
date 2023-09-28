@@ -18,6 +18,7 @@ public class CreateGame {
         System.out.println("Le plateau de " + plateaux.size() + " cases a été généré.");
         current.setPlayerPosition(1);
         System.out.println("La partie démarre");
+        System.out.println(plateaux);
         Game start = new Game();
         start.playTurn(current, plateaux);
 

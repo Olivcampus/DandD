@@ -29,8 +29,7 @@ public class GenerateCaseInBoard implements Case{
         return cases;
 
     }
-
-    @Override
+       @Override
     public String caseEquipmentDefensive() {
         return cases = "ED";
     }
