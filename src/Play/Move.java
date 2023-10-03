@@ -1,6 +1,6 @@
 package Play;
 
-import Menu.exception.PlayerOutOfBoardException;
+import Play.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package Board;
 
-import Menu.Menu.InputScanner;
+import Menu.InputScanner;
 
 import java.util.ArrayList;
 

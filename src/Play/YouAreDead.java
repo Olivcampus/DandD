@@ -1,13 +1,17 @@
-package Menu.Menu;
+package Play;
+
+import Menu.CreateCustomHero;
+import Menu.InputScanner;
+import Menu.ShowMainMenu;
 
 public class YouAreDead {
     /**
      * Menu se lançant à la mort du joueur
      */
     public YouAreDead() {
-        int choice = new InputScanner().intInputScanner();
         System.out.println("vous êtes décédé");
         System.out.println("choisissez 1 pour recréer un personnage et 2 pour retourner au menu principal");
+        int choice = new InputScanner().intInputScanner();
         switch (choice) {
             case 1:
                 new CreateCustomHero();

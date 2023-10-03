@@ -1,4 +1,4 @@
-package Menu.Menu;
+package Menu;
 
 import Board.CreateBoard;
 import Personnage.Personnage;

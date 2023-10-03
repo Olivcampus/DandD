@@ -1,4 +1,4 @@
-package Menu.Menu;
+package Menu;
 
 import Personnage.Personnage;
 import Personnage.heros.*;

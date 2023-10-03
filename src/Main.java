@@ -1,4 +1,4 @@
-import Menu.Menu.ShowMainMenu;
+import Menu.ShowMainMenu;
 
 
 public class Main {

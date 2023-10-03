@@ -1,4 +1,4 @@
-package Menu.exception;
+package Play.exception;
 
 
 public class PlayerOutOfBoardException extends Exception {

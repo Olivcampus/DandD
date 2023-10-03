@@ -1,7 +1,7 @@
 package Play;
 
-import Menu.Menu.InputScanner;
-import Menu.Menu.ShowMainMenu;
+import Menu.InputScanner;
+import Menu.ShowMainMenu;
 
 public class WinGame {
     /**

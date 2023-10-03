@@ -1,4 +1,4 @@
-package Menu.Menu;
+package Menu;
 
 public class ShowMainMenu {
     DialogBox dialogBox = new DialogBox();

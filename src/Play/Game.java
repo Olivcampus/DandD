@@ -1,11 +1,10 @@
 package Play;
 
 import Event.GenerateEventInCase;
-import Menu.Menu.DialogBox;
-import Menu.Menu.InputScanner;
-import Menu.Menu.ShowMainMenu;
-import Menu.Menu.YouAreDead;
-import Menu.exception.PlayerOutOfBoardException;
+import Menu.DialogBox;
+import Menu.InputScanner;
+import Menu.ShowMainMenu;
+import Play.exception.PlayerOutOfBoardException;
 import Personnage.Personnage;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class Game {
                         try {
                             player.setPlayerPosition(move.movePlayer(plateaux, player));
                         } catch (PlayerOutOfBoardException e) {
-                            System.out.println("votre position est de " + player.getPlayerPosition() + " " + e.getMessage());
+                            System.out.println(e.getMessage());
                         } finally {
                             player.setPlayerPosition(move.moveException(plateaux, player));
                         }
@@ -51,7 +50,7 @@ public class Game {
                     playTurn(player, plateaux);
                     break;
             }
-        } while (!player.isAlive())  {
+        } if (!player.isAlive())  {
             new YouAreDead();
         }
     }

@@ -1,7 +1,7 @@
 package Event.GenerateEvent;
 
 import Equipement.Defense.EquipmentDefensive;
-import Menu.Menu.InputScanner;
+import Menu.InputScanner;
 import Personnage.Personnage;
 
 import java.util.Objects;

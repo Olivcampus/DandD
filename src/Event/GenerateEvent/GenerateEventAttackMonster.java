@@ -1,7 +1,7 @@
 package Event.GenerateEvent;
 
+import Menu.InputScanner;
 import Personnage.Personnage;
-import Menu.Menu.*;
 
 public class GenerateEventAttackMonster {
     /**
@@ -12,7 +12,7 @@ public class GenerateEventAttackMonster {
 
         System.out.println("vous allez affronter un " + enemy.getType() + " du nom de : " + enemy.getName() + " d'une force de : " + enemy.getForce() + " points et d'une santé de " + enemy.getLife() + "PV");
         System.out.println("vous avez une force de : " + player.getForce() + " ,une vie de : " + player.getLife() + " et une résistance de " + player.getRightArm().getPowerArmor());
-        if ((player.isAlive()) && enemy.isAlive()) {
+        while ((player.isAlive()) && enemy.isAlive()) {
             System.out.println("voulez vous 1 : vous battre  2: fuir ?");
             int choice = new InputScanner().intInputScanner();
             switch (choice) {
