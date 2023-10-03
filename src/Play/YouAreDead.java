@@ -17,6 +17,9 @@ public class YouAreDead {
                 new CreateCustomHero();
             case 2:
                 new ShowMainMenu();
+            default:
+                System.out.println("choix invalide");
+                new YouAreDead();
         }
     }
 }
