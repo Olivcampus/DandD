@@ -10,7 +10,7 @@ public class CreateGame {
     ArrayList<String> plateaux;
 
     /**
-     * Instancie la création du plateau et des cases et lance le jeux
+     * Instancie la création du plateau et des cases et lance le jeu
      */
     public CreateGame(Personnage current) {
         plateaux = new CreateBoard().generateBoard();
@@ -20,6 +20,5 @@ public class CreateGame {
         System.out.println(plateaux);
         Game start = new Game();
         start.playTurn(current, plateaux);
-
     }
 }
